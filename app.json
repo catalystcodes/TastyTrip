@@ -1,15 +1,14 @@
 {
   "expo": {
-    "name": "TastyTrip1",
+    "name": "TastyTrip",
     "slug": "TastyTrip1",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./src/assets/PngItem_39514 1.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "image": "./src/assets/splashScreen.png",
+      "resizeMode": "cover"
     },
     "ios": {
       "supportsTablet": true
