@@ -3,4 +3,6 @@ export type RootStackParams = {
   welcomePage: undefined;
 };
 
-export type OnboardingStackParams = {};
+export type OnboardingStackParams = {
+  navigate: any;
+};

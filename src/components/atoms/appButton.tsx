@@ -1,5 +1,5 @@
-import React, { ReactElement, ReactNode, ReactSVGElement } from "react";
-import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+import React from "react";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
@@ -7,17 +7,21 @@ import {
 
 const AppButton = ({
   text,
-  Icon,
   onPress,
+  backgroundColor = "#D35400",
+  textColor = "white",
 }: {
   text: string;
-  Icon?: ReactNode;
   onPress?: () => void;
+  backgroundColor?: string;
+  textColor?: string;
 }) => {
   return (
-    <Pressable style={styles.socialButton} onPress={onPress}>
-      {Icon}
-      <Text style={styles.text}>{text}</Text>
+    <Pressable
+      style={[styles.socialButton, { backgroundColor }]}
+      onPress={onPress}
+    >
+      <Text style={[styles.text, { color: textColor }]}>{text}</Text>
     </Pressable>
   );
 };
@@ -26,16 +30,13 @@ const styles = StyleSheet.create({
   socialButton: {
     justifyContent: "center",
     flexDirection: "row",
-    backgroundColor: "#0EBE7F",
-    borderRadius: 12,
-    paddingVertical: hp("2.2"),
+    borderRadius: 30,
+    paddingVertical: hp("2.2%"),
     width: "100%",
   },
 
   text: {
-    color: "white",
     fontWeight: "700",
-    // fontSize: 18,
   },
 });
 

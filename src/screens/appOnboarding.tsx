@@ -82,14 +82,14 @@ const AppOnboarding = () => {
   const sliderRef = useRef(null);
   const navigation = useNavigation<OnboardingStackParams>();
   const handleSkip = () => {
-    // navigation.replace("login");
+    navigation.navigate("welcomePage");
   };
 
   const handleGetStarted = () => {
     if (activeSlide === 0) {
       setActiveSlide((currentSlide) => {
         const newIndex = currentSlide + 1;
-        sliderRef.current.goToSlide(newIndex);
+        // sliderRef.current.goToSlide(newIndex);
         return newIndex;
       });
     } else {
@@ -100,7 +100,9 @@ const AppOnboarding = () => {
   console.log({ activeSlide });
   return (
     <View style={{ flexGrow: 1, backgroundColor: "#D35400" }}>
-      <View style={{ marginTop: hp(11.2) }}></View>
+      <Pressable onPress={handleSkip}>
+        <Text style={{ textAlign: "right", marginTop: 40 }}>Skip</Text>
+      </Pressable>
       <AppIntroSlider
         ref={sliderRef}
         data={slides}
@@ -118,7 +120,7 @@ export default AppOnboarding;
 
 const styles = StyleSheet.create({
   imageWrapper: {
-    marginTop: hp(23),
+    marginTop: hp(27.1),
     height: hp(22.3),
     width: wp(48.3),
   },
