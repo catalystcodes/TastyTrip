@@ -43,17 +43,16 @@ const renderItem = (
         <View style={styles.imageWrapper}>
           <Image style={styles.image1} source={item.image} />
         </View>
-        <View style={styles.stepContainer}>
-          <Steps activeStep={activeSlide} steps={slides.length} />
-        </View>
+
         <Text
           style={{
             textAlign: "center",
             fontWeight: "700",
             fontSize: 20,
             width: wp(55.5),
-            marginTop: hp(10.5),
+            marginTop: hp(2.2),
             marginBottom: hp(1.5),
+            color: "white",
           }}
         >
           {item.title}
@@ -62,12 +61,17 @@ const renderItem = (
         <Text
           style={{
             textAlign: "center",
-            width: wp(82),
+            width: wp(65.5),
             lineHeight: 23.87,
+            color: "white",
+            marginBottom: hp(26.5),
           }}
         >
           {item.text}
         </Text>
+        <View style={styles.stepContainer}>
+          <Steps activeStep={activeSlide} steps={slides.length} />
+        </View>
       </View>
     </>
   );
@@ -95,7 +99,7 @@ const AppOnboarding = () => {
   //   console.log(slides[1]);
   console.log({ activeSlide });
   return (
-    <View style={{ flexGrow: 1 }}>
+    <View style={{ flexGrow: 1, backgroundColor: "#D35400" }}>
       <View style={{ marginTop: hp(11.2) }}></View>
       <AppIntroSlider
         ref={sliderRef}
@@ -106,34 +110,6 @@ const AppOnboarding = () => {
         }}
         renderPagination={() => null}
       />
-      <View
-        style={{
-          marginBottom: hp(6.4),
-        }}
-      >
-        <View
-          style={{
-            width: wp(77),
-            marginHorizontal: "auto",
-          }}
-        >
-          <AppButton text="Get Started" onPress={handleGetStarted} />
-        </View>
-        <Pressable
-          onPress={() => {
-            handleSkip();
-          }}
-        >
-          <Text
-            style={{
-              textAlign: "center",
-              marginTop: hp(1.7),
-            }}
-          >
-            SKIP
-          </Text>
-        </Pressable>
-      </View>
     </View>
   );
 };
@@ -142,12 +118,13 @@ export default AppOnboarding;
 
 const styles = StyleSheet.create({
   imageWrapper: {
-    width: wp(91.5),
-    height: hp(42.24),
+    marginTop: hp(23),
+    height: hp(22.3),
+    width: wp(48.3),
   },
   image1: {
     height: "100%",
-    objectFit: "cover",
+    objectFit: "contain",
   },
 
   getStartedButton: {
@@ -165,5 +142,7 @@ const styles = StyleSheet.create({
     fontWeight: "500",
   },
 
-  stepContainer: {},
+  stepContainer: {
+    // marginTop: hp(26.5),
+  },
 });

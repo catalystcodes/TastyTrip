@@ -31,6 +31,6 @@ const styles = StyleSheet.create({
     borderRadius: 100,
   },
   activeStep: {
-    backgroundColor: "#7D57F1",
+    backgroundColor: "white",
   },
 });
