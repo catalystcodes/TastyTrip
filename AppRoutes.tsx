@@ -5,7 +5,7 @@ import { RootStackParams } from "./src/utils/type";
 import AppOnboarding from "./src/screens/appOnboarding";
 import WelcomePage from "./src/screens/welcomePage";
 import Login from "./src/screens/login";
-import SingUp from "./src/screens/singUp";
+import SignUp from "./src/screens/signUp";
 
 const Stack = createNativeStackNavigator<RootStackParams>();
 
@@ -18,7 +18,7 @@ const AppRoutes = () => {
         <Screen name="appOnboarding" component={AppOnboarding} />
         <Screen name="welcomePage" component={WelcomePage} />
         <Screen name="loginPage" component={Login} />
-        <Screen name="signUpPage" component={SingUp} />
+        <Screen name="signUpPage" component={SignUp} />
       </Navigator>
     </View>
   );

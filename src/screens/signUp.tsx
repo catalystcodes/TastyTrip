@@ -11,34 +11,42 @@ import AppButton from "../components/atoms/appButton";
 import ConnectWith from "../components/atoms/connectWith";
 import GoogleAndFacebookConnect from "../components/molecules/googleAndFacebookConnect";
 
-const Login = () => {
+const SignUp = () => {
   return (
     <View style={{ flexGrow: 1, backgroundColor: "white" }}>
       <KeyboardAvoidView>
         <View style={{ paddingHorizontal: wp(7.2) }}>
-          <View style={{ marginTop: hp(8.8), marginBottom: hp(21) }}>
+          <View
+            style={{
+              marginTop: hp(8.8),
+              marginBottom: hp(17.1),
+            }}
+          >
             <HeadLine />
           </View>
           <Text
             style={{ fontWeight: "700", fontSize: 24, marginBottom: hp(3.3) }}
           >
-            Sign In
+            Sign Up
           </Text>
           <AppInputText
-            placeholder="username"
+            placeholder="Enter Username"
             style={{ marginBottom: hp(2.2) }}
           />
           <AppInputText
-            placeholder="password"
+            placeholder="Enter Password"
+            style={{ marginBottom: hp(3.3) }}
+          />
+          <AppInputText
+            placeholder="Re-enter Password"
             style={{ marginBottom: hp(3.3) }}
           />
           <AppButton text="Sign In" />
-
           <Text
             style={{
               textAlign: "right",
               marginTop: hp(2.2),
-              marginBottom: hp(16.2),
+              marginBottom: hp(12.4),
             }}
           >
             Forgot Password?
@@ -78,4 +86,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Login;
+export default SignUp;

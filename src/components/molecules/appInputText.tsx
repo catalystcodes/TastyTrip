@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import AntDesign from "@expo/vector-icons/AntDesign";
+import Ionicons from "@expo/vector-icons/Ionicons";
 import {
   KeyboardType,
   Pressable,
@@ -13,7 +14,6 @@ import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
-// import HideIcon from "./icons/hideIcon";
 
 type InputTextProps = TextInputProps & { type?: "password" | "text" };
 
@@ -46,7 +46,7 @@ const AppInputText = (props: InputTextProps) => {
             {hidePassword ? (
               <AntDesign name="eye" size={18} color="#677294" />
             ) : (
-              <HideIcon />
+              <Ionicons name="eye-off" size={24} color="black" />
             )}
           </Pressable>
         </View>
@@ -57,11 +57,10 @@ const AppInputText = (props: InputTextProps) => {
 
 const styles = StyleSheet.create({
   inputStyle: {
-    borderWidth: 1,
-    borderColor: "#E0E0E0",
+    backgroundColor: "#ECF0F1",
     fontSize: 14,
-    height: hp(6.7),
-    borderRadius: 12,
+    height: hp(5.6),
+    borderRadius: 30,
     paddingLeft: wp(6.7),
     zIndex: 1,
   },
