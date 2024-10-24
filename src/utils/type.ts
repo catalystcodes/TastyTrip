@@ -3,6 +3,7 @@ export type RootStackParams = {
   welcomePage: undefined;
   loginPage: undefined;
   signUpPage: undefined;
+  homePage: undefined;
 };
 
 export type OnboardingStackParams = {

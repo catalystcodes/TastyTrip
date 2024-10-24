@@ -11,7 +11,7 @@ import AppButton from "../components/atoms/appButton";
 import ConnectWith from "../components/atoms/connectWith";
 import GoogleAndFacebookConnect from "../components/molecules/googleAndFacebookConnect";
 
-const Login = () => {
+const Login = ({ navigation }: any) => {
   return (
     <View style={{ flexGrow: 1, backgroundColor: "white" }}>
       <KeyboardAvoidView>
@@ -32,7 +32,10 @@ const Login = () => {
             placeholder="password"
             style={{ marginBottom: hp(3.3) }}
           />
-          <AppButton text="Sign In" />
+          <AppButton
+            text="Sign In"
+            onPress={() => navigation.navigate("homePage")}
+          />
 
           <Text
             style={{

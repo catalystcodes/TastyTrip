@@ -6,6 +6,7 @@ import AppOnboarding from "./src/screens/appOnboarding";
 import WelcomePage from "./src/screens/welcomePage";
 import Login from "./src/screens/login";
 import SignUp from "./src/screens/signUp";
+import HomePage from "./src/screens/homePage";
 
 const Stack = createNativeStackNavigator<RootStackParams>();
 
@@ -19,6 +20,7 @@ const AppRoutes = () => {
         <Screen name="welcomePage" component={WelcomePage} />
         <Screen name="loginPage" component={Login} />
         <Screen name="signUpPage" component={SignUp} />
+        <Screen name="homePage" component={HomePage} />
       </Navigator>
     </View>
   );
