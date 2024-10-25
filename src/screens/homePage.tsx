@@ -46,9 +46,11 @@ const HomePage = () => {
           </View>
         </ScrollView>
       </View>
-      <View>
-        <Text>Food Menu</Text>
-        <Text>View all</Text>
+      <View style={{ paddingHorizontal: wp(7.2) }}>
+        <View style={styles.subDivThree}>
+          <Text style={{ fontSize: 18, fontWeight: "700" }}>Food Menu</Text>
+          <Text style={{ fontSize: 12, fontWeight: "400" }}>View all</Text>
+        </View>
       </View>
     </View>
   );
@@ -81,5 +83,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     columnGap: wp(9.7),
     paddingLeft: wp(7.2),
+  },
+  subDivThree: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
   },
 });
