@@ -1,3 +1,5 @@
+import { SvgProps } from "react-native-svg";
+
 export type RootStackParams = {
   appOnboarding: undefined;
   welcomePage: undefined;
@@ -15,3 +17,7 @@ export type OnboardingStackParams = {
 //   loginPage: undefined;
 //   signUpPage: undefined;
 // };
+
+export interface IconWithCustomProps extends SvgProps {
+  isSelected?: boolean;
+}

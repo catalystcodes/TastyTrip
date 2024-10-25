@@ -1,5 +1,5 @@
-import React from "react";
-import { StyleSheet, Text, TextInput, View } from "react-native";
+import React, { Fragment, useState } from "react";
+import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 import AppInputText from "../components/molecules/appInputText";
 import {
   heightPercentageToDP as hp,
@@ -7,8 +7,12 @@ import {
 } from "react-native-responsive-screen";
 import SearchIcon from "../components/atoms/icon/searchIcon";
 import LocationIcon from "../components/atoms/icon/location";
+import { foodCategory } from "../constantData";
+import FoodCategoryCard from "../components/molecules/foodCategoryCard";
+import { ScrollView } from "react-native-gesture-handler";
 
 const HomePage = () => {
+  const [selectedTab, setSelectedTab] = useState(0);
   return (
     <View style={{ flexGrow: 1, backgroundColor: "white" }}>
       <View style={styles.subDivOne}>
@@ -22,6 +26,29 @@ const HomePage = () => {
             9 West 46 Th Street, New York City
           </Text>
         </View>
+      </View>
+      <View>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+          <View style={styles.subDivTwo}>
+            {foodCategory.map((item, itemIndex) => (
+              <Pressable
+                onPress={() => {
+                  setSelectedTab(itemIndex);
+                }}
+                key={itemIndex}
+              >
+                <FoodCategoryCard
+                  {...item}
+                  isSelected={selectedTab === itemIndex}
+                />
+              </Pressable>
+            ))}
+          </View>
+        </ScrollView>
+      </View>
+      <View>
+        <Text>Food Menu</Text>
+        <Text>View all</Text>
       </View>
     </View>
   );
@@ -48,5 +75,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     columnGap: wp(0.7),
     marginTop: hp(1.1),
+  },
+  subDivTwo: {
+    marginVertical: hp(3.3),
+    flexDirection: "row",
+    columnGap: wp(9.7),
+    paddingLeft: wp(7.2),
   },
 });
