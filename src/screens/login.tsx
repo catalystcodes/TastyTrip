@@ -34,7 +34,7 @@ const Login = ({ navigation }: any) => {
           />
           <AppButton
             text="Sign In"
-            onPress={() => navigation.navigate("homePage")}
+            onPress={() => navigation.navigate("appBottomTab")}
           />
 
           <Text

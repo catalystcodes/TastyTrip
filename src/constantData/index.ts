@@ -22,3 +22,18 @@ export const foodCategory = [
     Icon: CakeIcon,
   },
 ] as const;
+
+export const FoodMenu = [
+  {
+    image: "",
+  },
+  {
+    image: "",
+  },
+  {
+    image: "",
+  },
+  {
+    image: "",
+  },
+];

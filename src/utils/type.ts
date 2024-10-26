@@ -6,10 +6,18 @@ export type RootStackParams = {
   loginPage: undefined;
   signUpPage: undefined;
   homePage: undefined;
+  appBottomTab: undefined;
 };
 
 export type OnboardingStackParams = {
   navigate: any;
+};
+
+export type BottomTabParams = {
+  homePage: undefined;
+  orderPage: undefined;
+  myListPage: undefined;
+  profilePage: undefined;
 };
 
 // export type welcomePageParams = {
