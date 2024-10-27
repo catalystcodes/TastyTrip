@@ -43,3 +43,13 @@ export const FoodMenu = [
     source: require("../assets/noodle.png"),
   },
 ];
+
+export const NearbyRestaurants = [
+  {
+    name: "Dapur Ijah Restaurant",
+    address: "13 th Street, 46 W 12th St, NY",
+    duration: "3 min - 1.1 km",
+    rate: require("../assets/rate.png"),
+    image: require("../assets/resImage.png"),
+  },
+];

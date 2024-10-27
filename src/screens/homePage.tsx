@@ -1,5 +1,12 @@
 import React, { Fragment, useState } from "react";
-import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
+import {
+  FlatList,
+  Pressable,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from "react-native";
 import AppInputText from "../components/molecules/appInputText";
 import {
   heightPercentageToDP as hp,
@@ -7,11 +14,12 @@ import {
 } from "react-native-responsive-screen";
 import SearchIcon from "../components/atoms/icon/searchIcon";
 import LocationIcon from "../components/atoms/icon/location";
-import { FoodMenu, foodCategory } from "../constantData";
+import { FoodMenu, NearbyRestaurants, foodCategory } from "../constantData";
 import FoodCategoryCard from "../components/molecules/foodCategoryCard";
 import { ScrollView } from "react-native-gesture-handler";
 import FoodMenuCard from "../components/molecules/foodMenu";
 import KeyboardAvoidView from "../components/organisms/keyboardAvoidView";
+import NearByRestaurantsCard from "../components/molecules/nearByRestaurantsCard";
 
 const HomePage = () => {
   const [selectedTab, setSelectedTab] = useState(0);
@@ -55,16 +63,37 @@ const HomePage = () => {
             <Text style={{ fontSize: 12, fontWeight: "400" }}>View all</Text>
           </View>
         </View>
-        <View
-          style={{
-            flexDirection: "row",
-            flexWrap: "wrap",
-          }}
-        >
-          {FoodMenu.map((item, itemIndex) => (
-            <Pressable key={itemIndex}>
-              <FoodMenuCard {...item} />
-            </Pressable>
+        <View>
+          <FlatList
+            // horizontal={true}
+            style={{ paddingLeft: wp(7.2) }}
+            data={FoodMenu}
+            numColumns={3}
+            contentContainerStyle={{
+              rowGap: hp(2.2),
+            }}
+            columnWrapperStyle={{
+              columnGap: wp(4.8),
+            }}
+            renderItem={({ item }: any) => (
+              <Pressable>
+                <FoodMenuCard {...item} />
+              </Pressable>
+            )}
+          />
+        </View>
+
+        <View style={{ paddingHorizontal: wp(7.2) }}>
+          <View style={styles.subDivFour}>
+            <Text style={{ fontSize: 18, fontWeight: "700" }}>Near Me</Text>
+            <Text style={{ fontSize: 12, fontWeight: "400" }}>View all</Text>
+          </View>
+        </View>
+        <View>
+          {NearbyRestaurants.map((item, itemIndex) => (
+            <View>
+              <NearByRestaurantsCard {...item} />
+            </View>
           ))}
         </View>
       </KeyboardAvoidView>
@@ -104,5 +133,12 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
+    marginBottom: hp(2.2),
+  },
+  subDivFour: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginVertical: hp(2.2),
   },
 });
