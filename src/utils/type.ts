@@ -14,10 +14,10 @@ export type OnboardingStackParams = {
 };
 
 export type BottomTabParams = {
-  homePage: undefined;
-  orderPage: undefined;
-  myListPage: undefined;
-  profilePage: undefined;
+  Home: undefined;
+  Order: undefined;
+  MyList: undefined;
+  Profile: undefined;
 };
 
 // export type welcomePageParams = {
