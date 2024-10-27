@@ -30,7 +30,7 @@ const AppBottomTabs = () => {
         tabBarStyle: {
           borderTopLeftRadius: 15,
           borderTopRightRadius: 15,
-          paddingHorizontal: wp(19.1),
+          paddingHorizontal: wp(9),
           // paddingVertical: hp(0),
           height: hp(11.2),
         },

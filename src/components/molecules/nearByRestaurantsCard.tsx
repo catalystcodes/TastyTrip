@@ -31,13 +31,25 @@ const NearByRestaurantsCard = ({
       <Image source={image} />
       <View>
         <Text style={{ fontSize: 14, fontWeight: "700" }}>{name}</Text>
-        <View>
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            marginVertical: hp(1.1),
+          }}
+        >
           <SmallLocationIcon />
           <Text style={{ fontSize: 12, fontWeight: "400", color: "#34495E" }}>
             {address}
           </Text>
         </View>
-        <View>
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            marginBottom: hp(1.1),
+          }}
+        >
           <Clock />
           <Text style={{ fontSize: 12, fontWeight: "400", color: "#34495E" }}>
             {duration}
@@ -56,5 +68,6 @@ const styles = StyleSheet.create({
     height: hp(14.5),
     width: wp(76.8),
     flexDirection: "row",
+    columnGap: wp(4.8),
   },
 });

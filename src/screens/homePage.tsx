@@ -89,9 +89,9 @@ const HomePage = () => {
             <Text style={{ fontSize: 12, fontWeight: "400" }}>View all</Text>
           </View>
         </View>
-        <View>
+        <View style={{ marginLeft: wp(7.2) }}>
           {NearbyRestaurants.map((item, itemIndex) => (
-            <View>
+            <View key={itemIndex}>
               <NearByRestaurantsCard {...item} />
             </View>
           ))}
