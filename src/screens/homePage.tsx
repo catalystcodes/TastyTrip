@@ -7,51 +7,67 @@ import {
 } from "react-native-responsive-screen";
 import SearchIcon from "../components/atoms/icon/searchIcon";
 import LocationIcon from "../components/atoms/icon/location";
-import { foodCategory } from "../constantData";
+import { FoodMenu, foodCategory } from "../constantData";
 import FoodCategoryCard from "../components/molecules/foodCategoryCard";
 import { ScrollView } from "react-native-gesture-handler";
+import FoodMenuCard from "../components/molecules/foodMenu";
+import KeyboardAvoidView from "../components/organisms/keyboardAvoidView";
 
 const HomePage = () => {
   const [selectedTab, setSelectedTab] = useState(0);
   return (
     <View style={{ flexGrow: 1, backgroundColor: "white" }}>
-      <View style={styles.subDivOne}>
-        <View style={styles.searchArea}>
-          <SearchIcon />
-          <TextInput placeholder="Search" />
-        </View>
-        <View style={styles.locationArea}>
-          <LocationIcon />
-          <Text style={{ fontSize: 12, fontWeight: "400" }}>
-            9 West 46 Th Street, New York City
-          </Text>
-        </View>
-      </View>
-      <View>
-        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          <View style={styles.subDivTwo}>
-            {foodCategory.map((item, itemIndex) => (
-              <Pressable
-                onPress={() => {
-                  setSelectedTab(itemIndex);
-                }}
-                key={itemIndex}
-              >
-                <FoodCategoryCard
-                  {...item}
-                  isSelected={selectedTab === itemIndex}
-                />
-              </Pressable>
-            ))}
+      <KeyboardAvoidView>
+        <View style={styles.subDivOne}>
+          <View style={styles.searchArea}>
+            <SearchIcon />
+            <TextInput placeholder="Search" />
           </View>
-        </ScrollView>
-      </View>
-      <View style={{ paddingHorizontal: wp(7.2) }}>
-        <View style={styles.subDivThree}>
-          <Text style={{ fontSize: 18, fontWeight: "700" }}>Food Menu</Text>
-          <Text style={{ fontSize: 12, fontWeight: "400" }}>View all</Text>
+          <View style={styles.locationArea}>
+            <LocationIcon />
+            <Text style={{ fontSize: 12, fontWeight: "400" }}>
+              9 West 46 Th Street, New York City
+            </Text>
+          </View>
         </View>
-      </View>
+        <View>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            <View style={styles.subDivTwo}>
+              {foodCategory.map((item, itemIndex) => (
+                <Pressable
+                  onPress={() => {
+                    setSelectedTab(itemIndex);
+                  }}
+                  key={itemIndex}
+                >
+                  <FoodCategoryCard
+                    {...item}
+                    isSelected={selectedTab === itemIndex}
+                  />
+                </Pressable>
+              ))}
+            </View>
+          </ScrollView>
+        </View>
+        <View style={{ paddingHorizontal: wp(7.2) }}>
+          <View style={styles.subDivThree}>
+            <Text style={{ fontSize: 18, fontWeight: "700" }}>Food Menu</Text>
+            <Text style={{ fontSize: 12, fontWeight: "400" }}>View all</Text>
+          </View>
+        </View>
+        <View
+          style={{
+            flexDirection: "row",
+            flexWrap: "wrap",
+          }}
+        >
+          {FoodMenu.map((item, itemIndex) => (
+            <Pressable key={itemIndex}>
+              <FoodMenuCard {...item} />
+            </Pressable>
+          ))}
+        </View>
+      </KeyboardAvoidView>
     </View>
   );
 };

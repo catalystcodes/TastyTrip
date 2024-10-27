@@ -25,15 +25,21 @@ export const foodCategory = [
 
 export const FoodMenu = [
   {
-    image: "",
+    source: require("../assets/burgers.png"),
   },
   {
-    image: "",
+    source: require("../assets/Pizza.png"),
   },
   {
-    image: "",
+    source: require("../assets/BBQ.png"),
   },
   {
-    image: "",
+    source: require("../assets/fruit.png"),
+  },
+  {
+    source: require("../assets/sushi.png"),
+  },
+  {
+    source: require("../assets/noodle.png"),
   },
 ];
