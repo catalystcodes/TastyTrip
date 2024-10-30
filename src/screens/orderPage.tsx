@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import HeadLine from "../components/molecules/headLine";
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
-import { map } from "lodash";
 import { ReviewFood } from "../constantData";
 import ReviewFoodCard from "../components/molecules/reviewFoodCard";
+import AppBottomTabs from "../components/molecules/appButtomTab";
+import AppButton from "../components/atoms/appButton";
 
 const OrderPage = () => {
   return (
@@ -28,6 +29,8 @@ const OrderPage = () => {
           </View>
         ))}
       </View>
+      <View style={{ marginTop: hp(32) }}></View>
+      <AppButton text="Send" />
     </View>
   );
 };

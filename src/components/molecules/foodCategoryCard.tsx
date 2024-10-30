@@ -29,6 +29,6 @@ const FoodCategoryCard = ({
   );
 };
 
-const styles = StyleSheet.create({});
-
 export default FoodCategoryCard;
+
+const styles = StyleSheet.create({});

@@ -65,7 +65,6 @@ const HomePage = () => {
         </View>
         <View>
           <FlatList
-            // horizontal={true}
             style={{ paddingLeft: wp(7.2) }}
             data={FoodMenu}
             numColumns={3}

@@ -1,5 +1,5 @@
-import React from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import React, { useState } from "react";
+import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import ThumbsUp from "../atoms/icon/thumbsUp";
 import ThumbsDown from "../atoms/icon/thumbsDown";
 import ThumbsUpWithBg from "../atoms/icon/thumbsUpWithBg";
@@ -8,21 +8,26 @@ import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
+import RenderAppIcon from "./RenderAppIcon";
+import { ReviewFood } from "../../constantData";
 
 interface ReviewFoodCardProps {
   image: any;
-  name: string;
+  brandName: string;
   thumbsUp: string;
   price: number;
+  isSelected: boolean;
   thumbsDown: string;
+  name: (typeof ReviewFood)[number]["brandName"];
 }
 
 const ReviewFoodCard = ({
   image,
-  name,
+  brandName,
   thumbsUp,
   thumbsDown,
   price,
+  isSelected,
 }: ReviewFoodCardProps) => {
   return (
     <View
@@ -30,7 +35,7 @@ const ReviewFoodCard = ({
     >
       <Image source={image} />
       <View>
-        <Text style={{ fontWeight: "700", fontSize: 14 }}>{name}</Text>
+        <Text style={{ fontWeight: "700", fontSize: 14 }}>{brandName}</Text>
         <View
           style={{
             flexDirection: "row",
@@ -47,10 +52,11 @@ const ReviewFoodCard = ({
           {price}
         </Text>
       </View>
-      <View style={{ flexDirection: "row", marginLeft: wp(7.5) }}>
-        <ThumbsDownWithBg />
-        <ThumbsUpWithBg />
-      </View>
+      <Pressable style={{ flexDirection: "row", marginLeft: wp(7.5) }}>
+        {/* <ThumbsDownWithBg style={{ marginRight: wp(3.1) }} />
+        <ThumbsUpWithBg /> */}
+        <RenderAppIcon isSelected={isSelected} />
+      </Pressable>
     </View>
   );
 };

@@ -1,5 +1,7 @@
 import DrinkIcon from "../components/atoms/icon/DrinkIcon";
 import CakeIcon from "../components/atoms/icon/cakeIcon";
+import ThumbsDownWithBg from "../components/atoms/icon/thumbsDownWithBg";
+import ThumbsUpWithBg from "../components/atoms/icon/thumbsUpWithBg";
 
 width: 414;
 height: 896;
@@ -56,24 +58,30 @@ export const NearbyRestaurants = [
 
 export const ReviewFood = [
   {
-    name: "Dogmie jagong tutung",
+    brandName: "Dogmie jagong tutung",
     price: 99.99,
     image: require("../assets/food.png"),
     thumbsUp: "999+ | ",
     thumbsDown: "93+",
+    icon1: ThumbsDownWithBg,
+    icon2: ThumbsUpWithBg,
   },
   {
-    name: "Dogmie jagong tutung",
+    brandName: "Dogmie jagong tutung",
     price: 99.99,
     image: require("../assets/food.png"),
     thumbsUp: "999+ | ",
     thumbsDown: "93+",
+    icon1: ThumbsDownWithBg,
+    icon2: ThumbsUpWithBg,
   },
   {
-    name: "Dogmie jagong tutung",
+    brandName: "Dogmie jagong tutung",
     price: 99.99,
     image: require("../assets/food.png"),
     thumbsUp: "   999+ | ",
     thumbsDown: "93+",
+    icon1: ThumbsDownWithBg,
+    icon2: ThumbsUpWithBg,
   },
 ];
