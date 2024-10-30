@@ -18,12 +18,12 @@ const OrderPage = () => {
         backgroundColor: "#fff",
       }}
     >
-      <View style={{ marginTop: hp(8.8) }}>
+      <View style={{ marginTop: hp(8.8), marginBottom: hp(1.1) }}>
         <HeadLine title="Review Food" />
       </View>
       <View>
         {ReviewFood.map((item, itemIndex) => (
-          <View>
+          <View style={{ marginTop: hp(2.2) }}>
             <ReviewFoodCard {...item} />
           </View>
         ))}

@@ -25,7 +25,9 @@ const ReviewFoodCard = ({
   price,
 }: ReviewFoodCardProps) => {
   return (
-    <View style={{ flexDirection: "row", columnGap: wp(4.8) }}>
+    <View
+      style={{ flexDirection: "row", columnGap: wp(4.8), alignItems: "center" }}
+    >
       <Image source={image} />
       <View>
         <Text style={{ fontWeight: "700", fontSize: 14 }}>{name}</Text>
