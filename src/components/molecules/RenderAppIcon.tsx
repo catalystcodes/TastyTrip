@@ -1,6 +1,6 @@
 import { View, Text } from "react-native";
 import React from "react";
-import { foodCategory } from "../../constantData";
+import { ReviewFood, foodCategory } from "../../constantData";
 import CakeIcon from "../atoms/icon/cakeIcon";
 import DrinkIcon from "../atoms/icon/DrinkIcon";
 import FoodIcon from "../atoms/icon/foodIcon";
@@ -8,7 +8,10 @@ import ThumbsDownWithBg from "../atoms/icon/thumbsDownWithBg";
 import ThumbsUpWithBg from "../atoms/icon/thumbsUpWithBg";
 
 interface RenderAppIconProps {
-  name: (typeof foodCategory)[number]["name"];
+  name:
+    | (typeof foodCategory)[number]["name"]
+    | (typeof ReviewFood)[number]["icon1"]
+    | (typeof ReviewFood)[number]["icon2"];
   isSelected: boolean;
 }
 
@@ -23,9 +26,9 @@ const RenderAppIcon = ({ name, isSelected }: RenderAppIconProps) => {
     case "Snacks":
       return <CakeIcon isSelected={isSelected} />;
     case "thumbsUp":
-      return <ThumbsDownWithBg />;
+      return <ThumbsDownWithBg isSelected={isSelected} />;
     case "thumbsDown":
-      return <ThumbsUpWithBg />;
+      return <ThumbsUpWithBg isSelected={isSelected} />;
     default:
       return <View />;
   }

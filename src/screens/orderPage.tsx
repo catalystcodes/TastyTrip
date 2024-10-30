@@ -24,7 +24,7 @@ const OrderPage = () => {
       </View>
       <View>
         {ReviewFood.map((item, itemIndex) => (
-          <View style={{ marginTop: hp(2.2) }}>
+          <View key={itemIndex} style={{ marginTop: hp(2.2) }}>
             <ReviewFoodCard {...item} />
           </View>
         ))}

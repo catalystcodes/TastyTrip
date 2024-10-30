@@ -63,8 +63,8 @@ export const ReviewFood = [
     image: require("../assets/food.png"),
     thumbsUp: "999+ | ",
     thumbsDown: "93+",
-    icon1: ThumbsDownWithBg,
-    icon2: ThumbsUpWithBg,
+    icon1: "thumbsUp",
+    icon2: "thumbsDown",
   },
   {
     brandName: "Dogmie jagong tutung",
@@ -72,8 +72,8 @@ export const ReviewFood = [
     image: require("../assets/food.png"),
     thumbsUp: "999+ | ",
     thumbsDown: "93+",
-    icon1: ThumbsDownWithBg,
-    icon2: ThumbsUpWithBg,
+    icon1: "thumbsUp",
+    icon2: "thumbsDown",
   },
   {
     brandName: "Dogmie jagong tutung",
@@ -81,7 +81,7 @@ export const ReviewFood = [
     image: require("../assets/food.png"),
     thumbsUp: "   999+ | ",
     thumbsDown: "93+",
-    icon1: ThumbsDownWithBg,
-    icon2: ThumbsUpWithBg,
+    icon1: "thumbsUp",
+    icon2: "thumbsDown",
   },
-];
+] as const;

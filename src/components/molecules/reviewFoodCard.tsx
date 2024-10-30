@@ -16,9 +16,9 @@ interface ReviewFoodCardProps {
   brandName: string;
   thumbsUp: string;
   price: number;
-  isSelected: boolean;
   thumbsDown: string;
-  name: (typeof ReviewFood)[number]["brandName"];
+  icon1: (typeof ReviewFood)[number]["icon1"];
+  icon2: (typeof ReviewFood)[number]["icon2"];
 }
 
 const ReviewFoodCard = ({
@@ -27,14 +27,18 @@ const ReviewFoodCard = ({
   thumbsUp,
   thumbsDown,
   price,
-  isSelected,
+  icon1,
+  icon2,
 }: ReviewFoodCardProps) => {
+  const [selectedAction, setSelectedAction] = useState<
+    null | "thumbUp" | "thumbsDown"
+  >(null);
   return (
     <View
       style={{ flexDirection: "row", columnGap: wp(4.8), alignItems: "center" }}
     >
       <Image source={image} />
-      <View>
+      <View style={{ flexGrow: 1 }}>
         <Text style={{ fontWeight: "700", fontSize: 14 }}>{brandName}</Text>
         <View
           style={{
@@ -52,11 +56,35 @@ const ReviewFoodCard = ({
           {price}
         </Text>
       </View>
-      <Pressable style={{ flexDirection: "row", marginLeft: wp(7.5) }}>
-        {/* <ThumbsDownWithBg style={{ marginRight: wp(3.1) }} />
-        <ThumbsUpWithBg /> */}
-        <RenderAppIcon isSelected={isSelected} />
-      </Pressable>
+      <View
+        style={{
+          flexDirection: "row",
+          columnGap: wp(3.1),
+        }}
+      >
+        <Pressable
+          onPress={() => {
+            setSelectedAction("thumbsDown");
+          }}
+        >
+          <ThumbsDownWithBg isSelected={selectedAction === "thumbsDown"} />
+        </Pressable>
+
+        <Pressable
+          onPress={() => {
+            setSelectedAction("thumbUp");
+          }}
+        >
+          <ThumbsUpWithBg isSelected={selectedAction === "thumbUp"} />
+        </Pressable>
+      </View>
+
+      {/* <RenderAppIcon name={icon1} isSelected={selectedAction === "thumbsUp"} />
+
+      <RenderAppIcon
+        name={icon2}
+        isSelected={selectedAction === "thumbsDown"}
+      /> */}
     </View>
   );
 };
