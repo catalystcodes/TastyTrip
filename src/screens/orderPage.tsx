@@ -5,12 +5,28 @@ import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
+import { map } from "lodash";
+import { ReviewFood } from "../constantData";
+import ReviewFoodCard from "../components/molecules/reviewFoodCard";
 
 const OrderPage = () => {
   return (
-    <View style={{ paddingHorizontal: wp(7.2) }}>
-      <View style={{ marginTop: hp(8.8), marginBottom: hp(21) }}>
+    <View
+      style={{
+        paddingHorizontal: wp(7.2),
+        flexGrow: 1,
+        backgroundColor: "#fff",
+      }}
+    >
+      <View style={{ marginTop: hp(8.8) }}>
         <HeadLine title="Review Food" />
+      </View>
+      <View>
+        {ReviewFood.map((item, itemIndex) => (
+          <View>
+            <ReviewFoodCard {...item} />
+          </View>
+        ))}
       </View>
     </View>
   );

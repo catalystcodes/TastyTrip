@@ -53,3 +53,27 @@ export const NearbyRestaurants = [
     image: require("../assets/resImage.png"),
   },
 ];
+
+export const ReviewFood = [
+  {
+    name: "Dogmie jagong tutung",
+    price: 99.99,
+    image: require("../assets/food.png"),
+    thumbsUp: "999+ | ",
+    thumbsDown: "93+",
+  },
+  {
+    name: "Dogmie jagong tutung",
+    price: 99.99,
+    image: require("../assets/food.png"),
+    thumbsUp: "999+ | ",
+    thumbsDown: "93+",
+  },
+  {
+    name: "Dogmie jagong tutung",
+    price: 99.99,
+    image: require("../assets/food.png"),
+    thumbsUp: "   999+ | ",
+    thumbsDown: "93+",
+  },
+];
