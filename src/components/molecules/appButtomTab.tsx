@@ -1,6 +1,6 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import React, { useState } from "react";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import HomePage from "../../screens/homePage";
 import HomeIcon from "../atoms/icon/homeIcon";
 import OrderPage from "../../screens/orderPage";
@@ -40,28 +40,28 @@ const AppBottomTabs = () => {
         name="Home"
         component={HomePage}
         options={{
-          tabBarIcon: () => <HomeIcon />,
+          tabBarIcon: ({ focused }) => <HomeIcon isSelected={focused} />,
         }}
       />
       <Tab.Screen
         name="Order"
         component={OrderPage}
         options={{
-          tabBarIcon: () => <OrderIcon />,
+          tabBarIcon: ({ focused }) => <OrderIcon isSelected={focused} />,
         }}
       />
       <Tab.Screen
         name="MyList"
         component={MyListPage}
         options={{
-          tabBarIcon: () => <MyListIcon />,
+          tabBarIcon: ({ focused }) => <MyListIcon isSelected={focused} />,
         }}
       />
       <Tab.Screen
         name="Profile"
         component={Profile}
         options={{
-          tabBarIcon: () => <ProfileIcon />,
+          tabBarIcon: ({ focused }) => <ProfileIcon isSelected={focused} />,
         }}
       />
     </Tab.Navigator>
