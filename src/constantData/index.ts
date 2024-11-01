@@ -87,11 +87,11 @@ export const ReviewFood = [
 ] as const;
 
 export const proflieDetails = [
-  { title: "My Profile" },
-  { title: "Change Password" },
-  { title: "Payment Settings" },
-  { title: "My Voucher" },
-  { title: "Notification" },
-  { title: "About Us" },
-  { title: "Contact Us" },
+  { profileTitle: "My Profile" },
+  { profileTitle: "Change Password" },
+  { profileTitle: "Payment Settings" },
+  { profileTitle: "My Voucher" },
+  { profileTitle: "Notification" },
+  { profileTitle: "About Us" },
+  { profileTitle: "Contact Us" },
 ];

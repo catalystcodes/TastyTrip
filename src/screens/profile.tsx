@@ -1,10 +1,12 @@
 import React from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
 import ProfileDetailCard from "../components/molecules/profileDetailCard";
+import { proflieDetails } from "../constantData";
+import AppButton from "../components/atoms/appButton";
 
 const Profile = () => {
   return (
@@ -24,10 +26,23 @@ const Profile = () => {
         >
           Itoh
         </Text>
-        <Text style={{ textAlign: "center" }}>+1 11229382748</Text>
+        <Text style={{ textAlign: "center", marginBottom: hp(3.3) }}>
+          +1 11229382748
+        </Text>
       </View>
-      <View>
-        <ProfileDetailCard />
+      <View style={{ paddingHorizontal: wp(7.2) }}>
+        {proflieDetails.map((item, itemIndex) => (
+          <Pressable style={{ marginBottom: hp(2.2) }}>
+            <ProfileDetailCard {...item} />
+          </Pressable>
+        ))}
+        <View style={{ marginTop: hp(5.7) }}>
+          <AppButton
+            backgroundColor="#ECF0F1"
+            text="Sign Out"
+            textColor="#000000"
+          />
+        </View>
       </View>
     </View>
   );

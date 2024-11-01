@@ -5,8 +5,14 @@ import ArrowRight from "../atoms/icon/arrowRight";
 
 const ProfileDetailCard = ({ profileTitle }: any) => {
   return (
-    <View style={{ flexDirection: "row", alignItems: "center" }}>
-      <Text>{profileTitle}</Text>
+    <View
+      style={{
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-between",
+      }}
+    >
+      <Text style={{ fontSize: 14, fontWeight: "500" }}>{profileTitle}</Text>
       <ArrowRight />
     </View>
   );
