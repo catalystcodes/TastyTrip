@@ -85,3 +85,13 @@ export const ReviewFood = [
     icon2: "thumbsDown",
   },
 ] as const;
+
+export const proflieDetails = [
+  { title: "My Profile" },
+  { title: "Change Password" },
+  { title: "Payment Settings" },
+  { title: "My Voucher" },
+  { title: "Notification" },
+  { title: "About Us" },
+  { title: "Contact Us" },
+];
