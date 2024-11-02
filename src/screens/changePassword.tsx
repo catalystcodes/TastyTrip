@@ -17,20 +17,22 @@ const ChangePassword = () => {
         backgroundColor: "white",
       }}
     >
-      <View style={{ marginTop: hp(8.8) }}>
+      <View style={{ marginTop: hp(8.8), marginBottom: hp(5.7) }}>
         <HeadLine title="Change Password" />
       </View>
       <View>
-        <Text>Enter Old Password</Text>
+        <Text style={{ marginBottom: hp(2.2) }}>Enter Old Password</Text>
         <AppInputText placeholder="Password" />
       </View>
       <View>
-        <Text>Enter Old Password</Text>
-        <AppInputText placeholder="Enter New Password" />
+        <Text style={{ marginTop: hp(3.3) }}>Create New Password</Text>
+        <View style={{ marginVertical: hp(2.2) }}>
+          <AppInputText placeholder="Enter New Password" />
+        </View>
         <AppInputText placeholder="Re-enter New Password" />
       </View>
-      <View>
-        <AppButton />
+      <View style={{ marginTop: hp(30.7) }}>
+        <AppButton text="Save" />
       </View>
     </View>
   );
