@@ -99,3 +99,16 @@ export const ProfileDetails: {
   { profileTitle: "About Us", path: "aboutUsPage" },
   { profileTitle: "Contact Us", path: "contactUsPage" },
 ];
+
+export const PaymentSection: {}[] = [
+  {
+    paymentTitle: "Paypal",
+    email: "Itoh@gmail.com",
+    image: require("../assets/paypalImage.png"),
+  },
+  {
+    paymentTitle: "Credit Card",
+    phoneNo: "4444 **** **** 6739",
+    image: require("../assets/mastercardImage.png"),
+  },
+];
