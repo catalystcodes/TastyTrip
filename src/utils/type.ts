@@ -34,6 +34,7 @@ export type profilePageTabsParams = {
   NotificationPage: undefined;
   aboutUsPage: undefined;
   contactUsPage: undefined;
+  profilePage: undefined;
 };
 
 export interface IconWithCustomProps extends SvgProps {

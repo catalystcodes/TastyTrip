@@ -14,6 +14,7 @@ import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
+import ProfileStack from "./profileStack";
 
 const Tab = createBottomTabNavigator<BottomTabParams>();
 
@@ -59,7 +60,7 @@ const AppBottomTabs = () => {
       />
       <Tab.Screen
         name="Profile"
-        component={Profile}
+        component={ProfileStack}
         options={{
           tabBarIcon: ({ focused }) => <ProfileIcon isSelected={focused} />,
         }}

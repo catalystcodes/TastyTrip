@@ -5,7 +5,7 @@ import {
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
 import ProfileDetailCard from "../components/molecules/profileDetailCard";
-import { proflieDetails } from "../constantData";
+import { ProfileDetails } from "../constantData";
 import AppButton from "../components/atoms/appButton";
 import { RootStackParams, profilePageTabsParams } from "../utils/type";
 import { useNavigation } from "@react-navigation/native";
@@ -38,7 +38,7 @@ const Profile = () => {
         </Text>
       </View>
       <View style={{ paddingHorizontal: wp(7.2) }}>
-        {proflieDetails.map((item, itemIndex) => (
+        {ProfileDetails.map((item, itemIndex) => (
           <Pressable
             onPress={() => handleSideNav(item.path)}
             key={itemIndex}

@@ -87,7 +87,7 @@ export const ReviewFood = [
   },
 ] as const;
 
-export const proflieDetails: {
+export const ProfileDetails: {
   profileTitle: string;
   path: keyof profilePageTabsParams;
 }[] = [
