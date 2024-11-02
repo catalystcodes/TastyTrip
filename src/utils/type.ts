@@ -26,6 +26,16 @@ export type BottomTabParams = {
 //   signUpPage: undefined;
 // };
 
+export type profilePageTabsParams = {
+  myProfilePage: undefined;
+  changePasswordPage: undefined;
+  paymentSettingPage: undefined;
+  myVoucherPage: undefined;
+  NotificationPage: undefined;
+  aboutUsPage: undefined;
+  contactUsPage: undefined;
+};
+
 export interface IconWithCustomProps extends SvgProps {
   isSelected?: boolean;
 }

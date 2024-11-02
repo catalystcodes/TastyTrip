@@ -2,6 +2,7 @@ import DrinkIcon from "../components/atoms/icon/DrinkIcon";
 import CakeIcon from "../components/atoms/icon/cakeIcon";
 import ThumbsDownWithBg from "../components/atoms/icon/thumbsDownWithBg";
 import ThumbsUpWithBg from "../components/atoms/icon/thumbsUpWithBg";
+import { RootStackParams, profilePageTabsParams } from "../utils/type";
 
 width: 414;
 height: 896;
@@ -86,12 +87,15 @@ export const ReviewFood = [
   },
 ] as const;
 
-export const proflieDetails = [
-  { profileTitle: "My Profile" },
-  { profileTitle: "Change Password" },
-  { profileTitle: "Payment Settings" },
-  { profileTitle: "My Voucher" },
-  { profileTitle: "Notification" },
-  { profileTitle: "About Us" },
-  { profileTitle: "Contact Us" },
+export const proflieDetails: {
+  profileTitle: string;
+  path: keyof profilePageTabsParams;
+}[] = [
+  { profileTitle: "My Profile", path: "myProfilePage" },
+  { profileTitle: "Change Password", path: "changePasswordPage" },
+  { profileTitle: "Payment Settings", path: "paymentSettingPage" },
+  { profileTitle: "My Voucher", path: "myVoucherPage" },
+  { profileTitle: "Notification", path: "NotificationPage" },
+  { profileTitle: "About Us", path: "aboutUsPage" },
+  { profileTitle: "Contact Us", path: "contactUsPage" },
 ];

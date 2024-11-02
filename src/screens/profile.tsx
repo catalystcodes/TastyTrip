@@ -7,8 +7,15 @@ import {
 import ProfileDetailCard from "../components/molecules/profileDetailCard";
 import { proflieDetails } from "../constantData";
 import AppButton from "../components/atoms/appButton";
+import { RootStackParams, profilePageTabsParams } from "../utils/type";
+import { useNavigation } from "@react-navigation/native";
 
 const Profile = () => {
+  const navigation: any = useNavigation();
+
+  const handleSideNav = (path: keyof profilePageTabsParams) => {
+    navigation.navigate(path);
+  };
   return (
     <View style={{ flexGrow: 1, backgroundColor: "white" }}>
       <View>
@@ -32,7 +39,11 @@ const Profile = () => {
       </View>
       <View style={{ paddingHorizontal: wp(7.2) }}>
         {proflieDetails.map((item, itemIndex) => (
-          <Pressable style={{ marginBottom: hp(2.2) }}>
+          <Pressable
+            onPress={() => handleSideNav(item.path)}
+            key={itemIndex}
+            style={{ marginBottom: hp(2.2) }}
+          >
             <ProfileDetailCard {...item} />
           </Pressable>
         ))}
