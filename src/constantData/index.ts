@@ -103,12 +103,12 @@ export const ProfileDetails: {
 export const PaymentSection: {}[] = [
   {
     paymentTitle: "Paypal",
-    email: "Itoh@gmail.com",
+    regMode: "Itoh@gmail.com",
     image: require("../assets/paypalImage.png"),
   },
   {
     paymentTitle: "Credit Card",
-    phoneNo: "4444 **** **** 6739",
+    regMode: "4444 **** **** 6739",
     image: require("../assets/mastercardImage.png"),
   },
 ];

@@ -17,13 +17,18 @@ const Payment = () => {
         paddingHorizontal: wp(7.2),
       }}
     >
-      <View style={{ marginTop: hp(8.8), marginBottom: hp(3.3) }}>
+      <View style={{ marginTop: hp(8.8), marginBottom: hp(1.1) }}>
         <HeadLine title="Payment Settings" />
       </View>
       <View>
         {PaymentSection.map((item, itemIndex) => (
-          <Pressable>
-            <PaymentSectionCard {...item} />
+          <Pressable style={{ marginTop: hp(2.2) }}>
+            <PaymentSectionCard
+              image={0}
+              regMode={""}
+              paymentTitle={""}
+              {...item}
+            />
           </Pressable>
         ))}
       </View>
