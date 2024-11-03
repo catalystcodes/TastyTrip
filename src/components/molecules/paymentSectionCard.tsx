@@ -31,7 +31,9 @@ const PaymentSectionCard = ({
         }}
       >
         <Image source={image} />
-        <Text>{paymentTitle}</Text>
+        <Text style={{ fontSize: 14, color: "#34495E", fontWeight: "400" }}>
+          {paymentTitle}
+        </Text>
       </View>
       <View
         style={{
@@ -40,7 +42,9 @@ const PaymentSectionCard = ({
           columnGap: wp(2.2),
         }}
       >
-        <Text>{regMode}</Text>
+        <Text style={{ fontSize: 14, color: "#34495E", fontWeight: "400" }}>
+          {regMode}
+        </Text>
         <ArrowRight />
       </View>
     </View>

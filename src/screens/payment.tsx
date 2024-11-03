@@ -7,6 +7,7 @@ import {
 } from "react-native-responsive-screen";
 import { PaymentSection } from "../constantData";
 import PaymentSectionCard from "../components/molecules/paymentSectionCard";
+import AddNewPaymentMethod from "../components/molecules/addNewPaymentMethod";
 
 const Payment = () => {
   return (
@@ -22,7 +23,7 @@ const Payment = () => {
       </View>
       <View>
         {PaymentSection.map((item, itemIndex) => (
-          <Pressable style={{ marginTop: hp(2.2) }}>
+          <Pressable key={itemIndex} style={{ marginTop: hp(2.2) }}>
             <PaymentSectionCard
               image={0}
               regMode={""}
@@ -31,8 +32,10 @@ const Payment = () => {
             />
           </Pressable>
         ))}
+        <View style={{ marginTop: hp(2.2) }}>
+          <AddNewPaymentMethod />
+        </View>
       </View>
-      {}
     </View>
   );
 };
