@@ -24,12 +24,7 @@ const Payment = () => {
       <View>
         {PaymentSection.map((item, itemIndex) => (
           <Pressable key={itemIndex} style={{ marginTop: hp(2.2) }}>
-            <PaymentSectionCard
-              image={0}
-              regMode={""}
-              paymentTitle={""}
-              {...item}
-            />
+            <PaymentSectionCard {...item} />
           </Pressable>
         ))}
         <View style={{ marginTop: hp(2.2) }}>

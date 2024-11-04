@@ -100,7 +100,7 @@ export const ProfileDetails: {
   { profileTitle: "Contact Us", path: "contactUsPage" },
 ];
 
-export const PaymentSection: {}[] = [
+export const PaymentSection = [
   {
     paymentTitle: "Paypal",
     regMode: "Itoh@gmail.com",
@@ -110,5 +110,14 @@ export const PaymentSection: {}[] = [
     paymentTitle: "Credit Card",
     regMode: "4444 **** **** 6739",
     image: require("../assets/mastercardImage.png"),
+  },
+];
+
+export const CreditCardDetails = [
+  {
+    bankName: "AZRAEN",
+    userName: "Itoh",
+    cardNumber: "4444 **** **** 6739",
+    balance: "$12.999.999.99",
   },
 ];

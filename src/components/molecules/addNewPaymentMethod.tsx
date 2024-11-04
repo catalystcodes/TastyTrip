@@ -1,10 +1,12 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import PayCard from "../atoms/icon/payCard";
 import AddIcon from "../atoms/icon/addIcon";
 import { widthPercentageToDP } from "react-native-responsive-screen";
+import { useNavigation } from "@react-navigation/native";
 
 const AddNewPaymentMethod = () => {
+  const navigation: any = useNavigation();
   return (
     <View
       style={{
@@ -25,7 +27,13 @@ const AddNewPaymentMethod = () => {
           Add new payment method
         </Text>
       </View>
-      <AddIcon />
+      <Pressable
+        onPress={() => {
+          navigation.navigate("addCreditCardSectionPage");
+        }}
+      >
+        <AddIcon />
+      </Pressable>
     </View>
   );
 };

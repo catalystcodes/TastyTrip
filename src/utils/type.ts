@@ -35,6 +35,7 @@ export type profilePageTabsParams = {
   aboutUsPage: undefined;
   contactUsPage: undefined;
   profilePage: undefined;
+  addCreditCardSectionPage: undefined;
 };
 
 export interface IconWithCustomProps extends SvgProps {

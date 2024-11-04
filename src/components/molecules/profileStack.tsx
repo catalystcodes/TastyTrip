@@ -10,6 +10,7 @@ import AboutUs from "../../screens/aboutUs";
 import ContactUs from "../../screens/contactUs";
 import Profile from "../../screens/profile";
 import MyVoucher from "../../screens/myVoucher";
+import AddCreditCardSection from "../../screens/addCreditCardSection";
 
 const Stack = createNativeStackNavigator<profilePageTabsParams>();
 
@@ -27,6 +28,10 @@ const ProfileStack = () => {
         <Screen name="NotificationPage" component={Notification} />
         <Screen name="aboutUsPage" component={AboutUs} />
         <Screen name="contactUsPage" component={ContactUs} />
+        <Screen
+          name="addCreditCardSectionPage"
+          component={AddCreditCardSection}
+        />
       </Navigator>
     </View>
   );
