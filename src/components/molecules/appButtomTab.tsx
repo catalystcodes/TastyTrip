@@ -15,6 +15,8 @@ import {
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
 import ProfileStack from "./profileStack";
+import RenderLabel from "../atoms/renderLabel";
+import RenderAppIcon from "./RenderAppIcon";
 
 const Tab = createBottomTabNavigator<BottomTabParams>();
 
@@ -23,16 +25,11 @@ const AppBottomTabs = () => {
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
-        // tabBarActiveTintColor: "#0EBE7E",
-        tabBarActiveTintColor: "#D35400",
-        // tabBarActiveBackgroundColor: "#0EBE7E",
-        // tabBarInactiveTintColor: "#BDBDBD",
-        tabBarShowLabel: true,
+        tabBarShowLabel: false,
         tabBarStyle: {
           borderTopLeftRadius: 15,
           borderTopRightRadius: 15,
           paddingHorizontal: wp(9),
-          // paddingVertical: hp(0),
           height: hp(11.2),
         },
       }}
@@ -41,7 +38,12 @@ const AppBottomTabs = () => {
         name="Home"
         component={HomePage}
         options={{
-          tabBarIcon: ({ focused }) => <HomeIcon isSelected={focused} />,
+          tabBarIcon: ({ focused }) => (
+            <View style={{}}>
+              <RenderAppIcon name="Home" focused={focused} />
+              <RenderLabel icon="home" focused={focused} />
+            </View>
+          ),
         }}
       />
       <Tab.Screen

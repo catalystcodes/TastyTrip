@@ -1,5 +1,9 @@
 import DrinkIcon from "../components/atoms/icon/DrinkIcon";
 import CakeIcon from "../components/atoms/icon/cakeIcon";
+import HomeIcon from "../components/atoms/icon/homeIcon";
+import MyListIcon from "../components/atoms/icon/myListIcon";
+import OrderIcon from "../components/atoms/icon/orderIcon";
+import ProfileIcon from "../components/atoms/icon/prrofileIcon";
 import ThumbsDownWithBg from "../components/atoms/icon/thumbsDownWithBg";
 import ThumbsUpWithBg from "../components/atoms/icon/thumbsUpWithBg";
 import { RootStackParams, profilePageTabsParams } from "../utils/type";
@@ -23,6 +27,22 @@ export const foodCategory = [
   {
     name: "Snacks",
     Icon: CakeIcon,
+  },
+  {
+    name: "Home",
+    Icon: HomeIcon,
+  },
+  {
+    name: "Order",
+    Icon: OrderIcon,
+  },
+  {
+    name: "MyList",
+    Icon: MyListIcon,
+  },
+  {
+    name: "Profile",
+    Icon: ProfileIcon,
   },
 ] as const;
 

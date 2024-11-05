@@ -6,6 +6,8 @@ import DrinkIcon from "../atoms/icon/DrinkIcon";
 import FoodIcon from "../atoms/icon/foodIcon";
 import ThumbsDownWithBg from "../atoms/icon/thumbsDownWithBg";
 import ThumbsUpWithBg from "../atoms/icon/thumbsUpWithBg";
+import HomeIcon from "../atoms/icon/homeIcon";
+import MyListIcon from "../atoms/icon/myListIcon";
 
 interface RenderAppIconProps {
   name:
@@ -13,9 +15,10 @@ interface RenderAppIconProps {
     | (typeof ReviewFood)[number]["icon1"]
     | (typeof ReviewFood)[number]["icon2"];
   isSelected: boolean;
+  focused: boolean;
 }
 
-const RenderAppIcon = ({ name, isSelected }: RenderAppIconProps) => {
+const RenderAppIcon = ({ name, isSelected, focused }: RenderAppIconProps) => {
   switch (name) {
     case "Drink":
       return <DrinkIcon isSelected={isSelected} />;
@@ -29,6 +32,10 @@ const RenderAppIcon = ({ name, isSelected }: RenderAppIconProps) => {
       return <ThumbsDownWithBg isSelected={isSelected} />;
     case "thumbsDown":
       return <ThumbsUpWithBg isSelected={isSelected} />;
+    case "Home":
+      return <HomeIcon />;
+    case "MyList":
+      return <MyListIcon />;
     default:
       return <View />;
   }
