@@ -121,3 +121,13 @@ export const CreditCardDetails = [
     balance: "$12.999.999.99",
   },
 ];
+
+export const MoreDetailsOnCardDetails = [
+  {
+    bankName: "AZRAEN",
+    userName: "Itoh",
+    cardNumber: "4444 3784 1380 6739",
+    date: "",
+    cvv: "",
+  },
+];
