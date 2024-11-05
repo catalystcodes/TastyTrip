@@ -6,16 +6,16 @@ import DrinkIcon from "../atoms/icon/DrinkIcon";
 import FoodIcon from "../atoms/icon/foodIcon";
 import ThumbsDownWithBg from "../atoms/icon/thumbsDownWithBg";
 import ThumbsUpWithBg from "../atoms/icon/thumbsUpWithBg";
-import HomeIcon from "../atoms/icon/homeIcon";
-import MyListIcon from "../atoms/icon/myListIcon";
+
+// import { result } from "lodash";
 
 interface RenderAppIconProps {
   name:
     | (typeof foodCategory)[number]["name"]
     | (typeof ReviewFood)[number]["icon1"]
     | (typeof ReviewFood)[number]["icon2"];
-  isSelected: boolean;
-  focused: boolean;
+  isSelected?: boolean;
+  focused?: boolean;
 }
 
 const RenderAppIcon = ({ name, isSelected, focused }: RenderAppIconProps) => {
@@ -32,10 +32,18 @@ const RenderAppIcon = ({ name, isSelected, focused }: RenderAppIconProps) => {
       return <ThumbsDownWithBg isSelected={isSelected} />;
     case "thumbsDown":
       return <ThumbsUpWithBg isSelected={isSelected} />;
-    case "Home":
-      return <HomeIcon />;
-    case "MyList":
-      return <MyListIcon />;
+    // case "Home":
+    //   result = focused ? (
+    //     <HomeIcon color="#fff" />
+    //   ) : (
+    //     <HomeIcon color="#D9E2E2" />
+    //   )
+    // case "MyList":
+    //   return <MyListIcon isSelected={isSelected} />;
+    // case "Order":
+    //   return <OrderIcon isSelected={isSelected} />;
+    // case "Profile":
+    //   return <ProfileIcon isSelected={isSelected} />;
     default:
       return <View />;
   }

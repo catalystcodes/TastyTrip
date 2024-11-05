@@ -16,7 +16,7 @@ import {
 } from "react-native-responsive-screen";
 import ProfileStack from "./profileStack";
 import RenderLabel from "../atoms/renderLabel";
-import RenderAppIcon from "./RenderAppIcon";
+import RenderAppIconBottomTab from "./renderAppIconBottomTab";
 
 const Tab = createBottomTabNavigator<BottomTabParams>();
 
@@ -39,9 +39,9 @@ const AppBottomTabs = () => {
         component={HomePage}
         options={{
           tabBarIcon: ({ focused }) => (
-            <View style={{}}>
-              <RenderAppIcon name="Home" focused={focused} />
-              <RenderLabel icon="home" focused={focused} />
+            <View style={{ alignItems: "center" }}>
+              <RenderAppIconBottomTab name="Home" focused={focused} />
+              <RenderLabel icon="Home" focused={focused} />
             </View>
           ),
         }}
@@ -50,21 +50,36 @@ const AppBottomTabs = () => {
         name="Order"
         component={OrderPage}
         options={{
-          tabBarIcon: ({ focused }) => <OrderIcon isSelected={focused} />,
+          tabBarIcon: ({ focused }) => (
+            <View style={{ alignItems: "center" }}>
+              <RenderAppIconBottomTab name="Order" focused={focused} />
+              <RenderLabel icon="Order" focused={focused} />
+            </View>
+          ),
         }}
       />
       <Tab.Screen
         name="MyList"
         component={MyListPage}
         options={{
-          tabBarIcon: ({ focused }) => <MyListIcon isSelected={focused} />,
+          tabBarIcon: ({ focused }) => (
+            <View style={{ alignItems: "center" }}>
+              <RenderAppIconBottomTab name="MyList" focused={focused} />
+              <RenderLabel icon="My List" focused={focused} />
+            </View>
+          ),
         }}
       />
       <Tab.Screen
         name="Profile"
         component={ProfileStack}
         options={{
-          tabBarIcon: ({ focused }) => <ProfileIcon isSelected={focused} />,
+          tabBarIcon: ({ focused }) => (
+            <View style={{ alignItems: "center" }}>
+              <RenderAppIconBottomTab name="Profile" focused={focused} />
+              <RenderLabel icon="Profile" focused={focused} />
+            </View>
+          ),
         }}
       />
     </Tab.Navigator>
