@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import HeadLine from "../components/molecules/headLine";
 import AppButton from "../components/atoms/appButton";
 import {
@@ -7,7 +7,8 @@ import {
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
 import CreditCard from "../components/molecules/creditCard";
-import { CreditCardDetails } from "../constantData";
+import { CreditCardDetails, MoreDetailsOnCardDetails } from "../constantData";
+import MoreDetailsOnCard from "../components/molecules/moreDetailsOnCard";
 
 const AddCreditCardSection = () => {
   return (
@@ -21,15 +22,24 @@ const AddCreditCardSection = () => {
       <View style={{ marginTop: hp(8.8), marginBottom: hp(3.3) }}>
         <HeadLine title="Add Credit Card" />
       </View>
-      {CreditCardDetails.map((item, itemIndex) => (
-        <View key={itemIndex}>
-          <CreditCard {...item} />
-        </View>
-      ))}
+      <View>
+        {CreditCardDetails.map((item, itemIndex) => (
+          <View key={itemIndex}>
+            <CreditCard {...item} />
+          </View>
+        ))}
+      </View>
 
-      {/* <View>
+      <View style={{ marginTop: hp(25.2) }}>
+        {MoreDetailsOnCardDetails.map((item, itemIndex) => (
+          <View key={itemIndex} style={{ marginBottom: hp(2.2) }}>
+            <MoreDetailsOnCard {...item} />
+          </View>
+        ))}
+      </View>
+      <View style={{ marginTop: hp(15) }}>
         <AppButton text="Add" />
-      </View> */}
+      </View>
     </View>
   );
 };

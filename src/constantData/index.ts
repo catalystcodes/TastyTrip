@@ -124,10 +124,23 @@ export const CreditCardDetails = [
 
 export const MoreDetailsOnCardDetails = [
   {
-    bankName: "AZRAEN",
-    userName: "Itoh",
-    cardNumber: "4444 3784 1380 6739",
-    date: "",
-    cvv: "",
+    title: "Bank name",
+    details: "AZRAEN Bank",
+  },
+  {
+    title: "Your name",
+    details: "Itoh",
+  },
+  {
+    title: "Card number",
+    details: "4444 3784 1380 6739",
+  },
+  {
+    title: "Data",
+    details: "02/22",
+  },
+  {
+    title: "CVV",
+    details: "877",
   },
 ];
