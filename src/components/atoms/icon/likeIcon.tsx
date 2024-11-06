@@ -14,7 +14,7 @@ const LikeIcon = (props: IconWithCustomProps) => (
       cx={15}
       cy={15}
       r={15}
-      fill={props.isSelected ? "#ECF0F1" : "#D35400"}
+      fill={props.isSelected ? "#D35400" : "#ECF0F1"}
     />
     <G clipPath="url(#a)">
       <Path

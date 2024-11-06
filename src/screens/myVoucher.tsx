@@ -22,7 +22,7 @@ const MyVoucher = () => {
         <HeadLine title="My Voucher" />
       </View>
       {Voucher.map((item, itemIndex) => (
-        <View key={itemIndex}>
+        <View style={{ marginBottom: hp(2.2) }} key={itemIndex}>
           <VoucherCard {...item} />
         </View>
       ))}

@@ -15,7 +15,7 @@ const VoucherCard = ({
   percentageOfSales: number;
   dateElapsed: number;
 }) => {
-  const [isSelected, setIsSelected]: any = useState(null);
+  const [isSelected, setIsSelected] = useState<any>(null);
   return (
     <View
       style={{
@@ -52,10 +52,11 @@ const VoucherCard = ({
       </View>
       <Pressable
         onPress={() => {
-          isSelected(setIsSelected);
+          setIsSelected((prevSelected: any) => !prevSelected);
+          //   setIsSelected(!isSelected);
         }}
       >
-        <LikeIcon />
+        <LikeIcon isSelected={isSelected} />
       </Pressable>
     </View>
   );

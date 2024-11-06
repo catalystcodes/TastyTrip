@@ -10,13 +10,18 @@ interface IRenderLabel {
 const RenderLabel = ({ focused, icon }: IRenderLabel) => {
   return (
     <View>
-      <Text style={[{ color: "#808080", fontSize: 12, fontWeight: "400" }]}>
+      <Text style={[styles.label, { color: focused ? "#D35400" : "#808080" }]}>
         {icon}
       </Text>
     </View>
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  label: {
+    fontSize: 12,
+    fontWeight: "400",
+  },
+});
 
 export default RenderLabel;

@@ -173,4 +173,12 @@ export const Voucher = [
     percentageOfSales: 30,
     dateElapsed: 11,
   },
+  {
+    percentageOfSales: 30,
+    dateElapsed: 11,
+  },
+  {
+    percentageOfSales: 30,
+    dateElapsed: 11,
+  },
 ];
