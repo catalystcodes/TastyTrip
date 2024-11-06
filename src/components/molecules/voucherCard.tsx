@@ -1,11 +1,21 @@
-import React from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import React, { useState } from "react";
+import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import LikeIcon from "../atoms/icon/likeIcon";
 import Voucher from "../atoms/icon/voucher";
 import Clock from "../atoms/icon/clock";
-import { widthPercentageToDP as wp } from "react-native-responsive-screen";
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
 
-const VoucherCard = () => {
+const VoucherCard = ({
+  percentageOfSales,
+  dateElapsed,
+}: {
+  percentageOfSales: number;
+  dateElapsed: number;
+}) => {
+  const [isSelected, setIsSelected]: any = useState(null);
   return (
     <View
       style={{
@@ -19,15 +29,34 @@ const VoucherCard = () => {
           <Voucher />
         </View>
         <View>
-          <Text>Sale off 30% for Pizza</Text>
-          <View style={{ flexDirection: "row", alignItems: "center" }}>
+          <Text style={{ fontWeight: "700", fontSize: 14 }}>
+            Sale off {percentageOfSales}% for Pizza
+          </Text>
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              marginVertical: hp(1.1),
+              columnGap: hp(1.2),
+            }}
+          >
             <Clock />
-            <Text>Apr 10 - Apr 30</Text>
+            <Text style={{ fontWeight: "400", fontSize: 12, color: "#34495E" }}>
+              Apr 10 - Apr 30
+            </Text>
           </View>
-          <Text>11 days left</Text>
+          <Text style={{ fontWeight: "500", fontSize: 14, color: "red" }}>
+            {dateElapsed} days left
+          </Text>
         </View>
       </View>
-      <LikeIcon />
+      <Pressable
+        onPress={() => {
+          isSelected(setIsSelected);
+        }}
+      >
+        <LikeIcon />
+      </Pressable>
     </View>
   );
 };

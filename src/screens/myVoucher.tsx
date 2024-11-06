@@ -7,6 +7,7 @@ import {
 } from "react-native-responsive-screen";
 import LikeIcon from "../components/atoms/icon/likeIcon";
 import VoucherCard from "../components/molecules/voucherCard";
+import { Voucher } from "../constantData";
 
 const MyVoucher = () => {
   return (
@@ -20,7 +21,11 @@ const MyVoucher = () => {
       <View style={{ marginTop: hp(8.8), marginBottom: hp(3.3) }}>
         <HeadLine title="My Voucher" />
       </View>
-      <VoucherCard />
+      {Voucher.map((item, itemIndex) => (
+        <View key={itemIndex}>
+          <VoucherCard {...item} />
+        </View>
+      ))}
     </View>
   );
 };

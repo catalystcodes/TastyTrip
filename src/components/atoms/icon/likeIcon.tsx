@@ -7,9 +7,15 @@ import Svg, {
   Defs,
   ClipPath,
 } from "react-native-svg";
-const LikeIcon = (props: SvgProps) => (
+import { IconWithCustomProps } from "../../../utils/type";
+const LikeIcon = (props: IconWithCustomProps) => (
   <Svg width={30} height={30} fill="none" {...props}>
-    <Circle cx={15} cy={15} r={15} fill="#D35400" />
+    <Circle
+      cx={15}
+      cy={15}
+      r={15}
+      fill={props.isSelected ? "#ECF0F1" : "#D35400"}
+    />
     <G clipPath="url(#a)">
       <Path
         fill="#ECF0F1"

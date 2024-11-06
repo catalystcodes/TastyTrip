@@ -170,8 +170,7 @@ export const MoreDetailsOnCardDetails = [
 
 export const Voucher = [
   {
-    percentageOfSales: "",
-    dateInterval: "",
-    dateElapsed: "",
+    percentageOfSales: 30,
+    dateElapsed: 11,
   },
 ];
