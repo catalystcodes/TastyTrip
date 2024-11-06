@@ -5,6 +5,8 @@ import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
+import LikeIcon from "../components/atoms/icon/likeIcon";
+import VoucherCard from "../components/molecules/voucherCard";
 
 const MyVoucher = () => {
   return (
@@ -18,6 +20,7 @@ const MyVoucher = () => {
       <View style={{ marginTop: hp(8.8), marginBottom: hp(3.3) }}>
         <HeadLine title="My Voucher" />
       </View>
+      <VoucherCard />
     </View>
   );
 };

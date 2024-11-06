@@ -28,22 +28,6 @@ export const foodCategory = [
     name: "Snacks",
     Icon: CakeIcon,
   },
-  // {
-  //   name: "Home",
-  //   Icon: HomeIcon,
-  // },
-  // {
-  //   name: "Order",
-  //   Icon: OrderIcon,
-  // },
-  // {
-  //   name: "MyList",
-  //   Icon: MyListIcon,
-  // },
-  // {
-  //   name: "Profile",
-  //   Icon: ProfileIcon,
-  // },
 ] as const;
 
 export const BottomTabIcon = [
@@ -181,5 +165,13 @@ export const MoreDetailsOnCardDetails = [
   {
     title: "CVV",
     details: "877",
+  },
+];
+
+export const Voucher = [
+  {
+    percentageOfSales: "",
+    dateInterval: "",
+    dateElapsed: "",
   },
 ];
