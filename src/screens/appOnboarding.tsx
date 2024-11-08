@@ -15,7 +15,6 @@ import {
 import { OnboardingStackParams } from "../utils/type";
 import { useNavigation } from "@react-navigation/native";
 import AppIntroSlider from "react-native-app-intro-slider";
-import AppButton from "../components/atoms/appButton";
 import { slides } from "../constantData/onBoardingData";
 
 //renderItems
@@ -81,34 +80,24 @@ const AppOnboarding = () => {
   const [activeSlide, setActiveSlide] = useState(0);
   const sliderRef = useRef(null);
   const navigation = useNavigation<OnboardingStackParams>();
-  const handleSkip = () => {
-    navigation.navigate("welcomePage");
-  };
+  const intervalId = useRef<NodeJS.Timeout | null>(null);
 
-  const handleGetStarted = () => {
-    if (activeSlide === 0) {
-      setActiveSlide((currentSlide) => {
-        const newIndex = currentSlide + 1;
-        // sliderRef.current.goToSlide(newIndex);
-        return newIndex;
-      });
-    } else {
-      // navigation.navigate("login");
-    }
-  };
-  //   console.log(slides[1]);
-  console.log({ activeSlide });
   return (
     <View style={{ flexGrow: 1, backgroundColor: "#D35400" }}>
-      <Pressable onPress={handleSkip}>
-        <Text style={{ textAlign: "right", marginTop: 40 }}>Skip</Text>
-      </Pressable>
       <AppIntroSlider
         ref={sliderRef}
         data={slides}
         renderItem={(item) => renderItem(item, activeSlide)}
         onSlideChange={(index) => {
+          intervalId.current && clearTimeout(intervalId.current);
           setActiveSlide(index);
+        }}
+        onTouchEndCapture={() => {
+          if (activeSlide === slides.length - 1) {
+            intervalId.current = setTimeout(() => {
+              navigation.navigate("welcomePage");
+            }, 450);
+          }
         }}
         renderPagination={() => null}
       />
