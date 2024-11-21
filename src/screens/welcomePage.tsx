@@ -7,8 +7,11 @@ import {
 } from "react-native-responsive-screen";
 import ConnectWith from "../components/atoms/connectWith";
 import GoogleAndFacebookConnect from "../components/molecules/googleAndFacebookConnect";
+import { useSelector } from "react-redux";
 
 const WelcomePage = ({ navigation }: any) => {
+  const appReducer = useSelector<any>((state) => state.appReducer);
+  console.log({ appReducer });
   return (
     <View style={{ backgroundColor: "#FFFFFF", flexGrow: 1 }}>
       <View style={{ alignItems: "center" }}>

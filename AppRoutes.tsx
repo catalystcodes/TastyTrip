@@ -7,16 +7,20 @@ import WelcomePage from "./src/screens/welcomePage";
 import Login from "./src/screens/login";
 import SignUp from "./src/screens/signUp";
 import AppBottomTabs from "./src/components/molecules/appButtomTab";
+import { useSelector } from "react-redux";
 
 const Stack = createNativeStackNavigator<RootStackParams>();
 
 const AppRoutes = () => {
   const { Navigator, Screen } = Stack;
+  const appReducer:any = useSelector<any>((state) => state.appReducer);
 
   return (
     <View style={styles.container}>
       <Navigator screenOptions={{ headerShown: false }}>
-        <Screen name="appOnboarding" component={AppOnboarding} />
+        {!appReducer.onBoarding && (
+          <Screen name="appOnboarding" component={AppOnboarding} />
+        )}
         <Screen name="welcomePage" component={WelcomePage} />
         <Screen name="loginPage" component={Login} />
         <Screen name="signUpPage" component={SignUp} />

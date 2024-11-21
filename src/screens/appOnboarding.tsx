@@ -16,6 +16,8 @@ import { OnboardingStackParams } from "../utils/type";
 import { useNavigation } from "@react-navigation/native";
 import AppIntroSlider from "react-native-app-intro-slider";
 import { slides } from "../constantData/onBoardingData";
+import { useDispatch } from "react-redux";
+import { setOnboarding } from "../store/appReducer";
 
 //renderItems
 const renderItem = (
@@ -81,6 +83,7 @@ const AppOnboarding = () => {
   const sliderRef = useRef(null);
   const navigation = useNavigation<OnboardingStackParams>();
   const intervalId = useRef<NodeJS.Timeout | null>(null);
+  const dispatch = useDispatch();
 
   return (
     <View style={{ flexGrow: 1, backgroundColor: "#D35400" }}>
@@ -96,6 +99,7 @@ const AppOnboarding = () => {
           if (activeSlide === slides.length - 1) {
             intervalId.current = setTimeout(() => {
               navigation.navigate("welcomePage");
+              dispatch(setOnboarding(true));
             }, 450);
           }
         }}
