@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 import HeadLine from "../components/molecules/headLine";
 import {
@@ -10,8 +10,21 @@ import KeyboardAvoidView from "../components/organisms/keyboardAvoidView";
 import AppButton from "../components/atoms/appButton";
 import ConnectWith from "../components/atoms/connectWith";
 import GoogleAndFacebookConnect from "../components/molecules/googleAndFacebookConnect";
+import { doLogin } from "../utils/auth.helper";
+import { useAuthContext } from "../context";
 
 const Login = ({ navigation }: any) => {
+  const [form, setForm] = useState({ userName: "", password: "" });
+  const { setUserInfo } = useAuthContext();
+
+  const handleLogin = async () => {
+    try {
+      await doLogin(form.userName);
+      setUserInfo(form.userName);
+      // navigation.navigate("todo screens");
+    } catch (error) {}
+  };
+
   return (
     <View style={{ flexGrow: 1, backgroundColor: "white" }}>
       <KeyboardAvoidView>
@@ -24,18 +37,25 @@ const Login = ({ navigation }: any) => {
           >
             Sign In
           </Text>
+
           <AppInputText
             placeholder="username"
             style={{ marginBottom: hp(2.2) }}
+            value={form.userName}
+            onChangeText={(text) =>
+              setForm((currentValue) => ({ ...currentValue, userName: text }))
+            }
           />
           <AppInputText
             placeholder="password"
             style={{ marginBottom: hp(3.3) }}
+            value={form.password}
+            onChangeText={(text) =>
+              setForm((currentValue) => ({ ...currentValue, password: text }))
+            }
+            type="password" // Specify that this is a password input
           />
-          <AppButton
-            text="Sign In"
-            onPress={() => navigation.navigate("appBottomTab")}
-          />
+          <AppButton text="Sign In" onPress={handleLogin} />
 
           <Text
             style={{
