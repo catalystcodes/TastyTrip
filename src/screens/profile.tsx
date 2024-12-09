@@ -9,9 +9,11 @@ import { ProfileDetails } from "../constantData";
 import AppButton from "../components/atoms/appButton";
 import { RootStackParams, profilePageTabsParams } from "../utils/type";
 import { useNavigation } from "@react-navigation/native";
+import { useAuthContext } from "../context";
 
 const Profile = () => {
   const navigation: any = useNavigation();
+  const { userInfo, clearAuthData } = useAuthContext();
 
   const handleSideNav = (path: keyof profilePageTabsParams) => {
     navigation.navigate(path);
@@ -31,7 +33,7 @@ const Profile = () => {
             fontWeight: "700",
           }}
         >
-          Itoh
+          {userInfo}
         </Text>
         <Text style={{ textAlign: "center", marginBottom: hp(3.3) }}>
           +1 11229382748
@@ -52,6 +54,9 @@ const Profile = () => {
             backgroundColor="#ECF0F1"
             text="Sign Out"
             textColor="#000000"
+            onPress={() => {
+              clearAuthData();
+            }}
           />
         </View>
       </View>
