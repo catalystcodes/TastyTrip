@@ -10,6 +10,7 @@ import AppBottomTabs from "./src/components/molecules/appButtomTab";
 import { useSelector } from "react-redux";
 import { useAuthContext } from "./src/context";
 import * as SplashScreen from "expo-splash-screen";
+import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 
 const Stack = createNativeStackNavigator<RootStackParams>();
 
@@ -56,5 +57,6 @@ export default AppRoutes;
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
+    paddingTop: hp(5.5),
   },
 });
