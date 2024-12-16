@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+import { Alert, Image, Pressable, StyleSheet, Text, View } from "react-native";
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
@@ -11,9 +11,31 @@ import { RootStackParams, profilePageTabsParams } from "../utils/type";
 import { useNavigation } from "@react-navigation/native";
 import { useAuthContext } from "../context";
 
+interface AppButtonProps {
+  backgroundColor: string;
+  text: string;
+  textColor: string;
+  onPress: () => void; // Ensure this is a function type
+}
+
 const Profile = () => {
   const navigation: any = useNavigation();
   const { userInfo, clearAuthData } = useAuthContext();
+
+  const logoutConfirmationAlert = () => {
+    Alert.alert(
+      "Logout",
+      "Are you sure you want to logout?",
+      [
+        {
+          text: "Cancel",
+          style: "destructive",
+        },
+        { text: "Logout", onPress: () => clearAuthData() },
+      ],
+      { cancelable: true }
+    );
+  };
 
   const handleSideNav = (path: keyof profilePageTabsParams) => {
     navigation.navigate(path);
@@ -55,7 +77,7 @@ const Profile = () => {
             text="Sign Out"
             textColor="#000000"
             onPress={() => {
-              clearAuthData();
+              logoutConfirmationAlert();
             }}
           />
         </View>
