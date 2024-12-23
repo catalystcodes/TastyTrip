@@ -12,16 +12,22 @@ import ConnectWith from "../components/atoms/connectWith";
 import GoogleAndFacebookConnect from "../components/molecules/googleAndFacebookConnect";
 import { doLogin } from "../utils/auth.helper";
 import { useAuthContext } from "../context";
+import AuthFooter from "../components/molecules/AuthFooter";
 
 const Login = ({ navigation }: any) => {
-  const [form, setForm] = useState({ userName: "", password: "" });
+  const [form, setForm] = useState({ username: "", password: "" });
   const { setUserInfo } = useAuthContext();
 
+  const disableButton =
+    form.username.trim() === "" || form.password.trim() === "";
+
   const handleLogin = async () => {
+    if (disableButton) return;
     try {
-      await doLogin(form.userName);
-      setUserInfo(form.userName);
-      // navigation.navigate("todo screens");
+      const data = await doLogin(form);
+      if (data) {
+        setUserInfo(form.username);
+      }
     } catch (error) {}
   };
 
@@ -29,7 +35,7 @@ const Login = ({ navigation }: any) => {
     <View style={{ flexGrow: 1, backgroundColor: "white" }}>
       <KeyboardAvoidView>
         <View style={{ paddingHorizontal: wp(7.2) }}>
-          <View style={{ marginTop: hp(8.8), marginBottom: hp(21) }}>
+          <View style={{ marginTop: hp(3.34), marginBottom: hp(21) }}>
             <HeadLine />
           </View>
           <Text
@@ -41,9 +47,9 @@ const Login = ({ navigation }: any) => {
           <AppInputText
             placeholder="username"
             style={{ marginBottom: hp(2.2) }}
-            value={form.userName}
+            value={form.username}
             onChangeText={(text) =>
-              setForm((currentValue) => ({ ...currentValue, userName: text }))
+              setForm((currentValue) => ({ ...currentValue, username: text }))
             }
           />
           <AppInputText
@@ -53,9 +59,13 @@ const Login = ({ navigation }: any) => {
             onChangeText={(text) =>
               setForm((currentValue) => ({ ...currentValue, password: text }))
             }
-            type="password" // Specify that this is a password input
+            type="password"
           />
-          <AppButton text="Sign In" onPress={handleLogin} />
+          <AppButton
+            text="Sign In"
+            onPress={handleLogin}
+            disabled={disableButton}
+          />
 
           <Text
             style={{
@@ -67,27 +77,7 @@ const Login = ({ navigation }: any) => {
             Forgot Password?
           </Text>
         </View>
-        <ConnectWith />
-
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "space-between",
-            paddingRight: wp(7.2),
-          }}
-        >
-          <Image
-            source={require("../assets/PngItem_39514 1.png")}
-            style={styles.foodImage}
-          />
-          <View
-            style={{
-              marginTop: hp(2.2),
-            }}
-          >
-            <GoogleAndFacebookConnect />
-          </View>
-        </View>
+        <AuthFooter />
       </KeyboardAvoidView>
     </View>
   );
@@ -95,8 +85,6 @@ const Login = ({ navigation }: any) => {
 
 const styles = StyleSheet.create({
   foodImage: {
-    // position: "absolute",
-    // top: 70,
     marginTop: hp(2),
   },
 });
