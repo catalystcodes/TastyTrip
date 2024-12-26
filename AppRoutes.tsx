@@ -11,6 +11,7 @@ import { useSelector } from "react-redux";
 import { useAuthContext } from "./src/context";
 import * as SplashScreen from "expo-splash-screen";
 import { heightPercentageToDP as hp } from "react-native-responsive-screen";
+import { useAuthUser } from "./src/utils/common.hooks";
 
 const Stack = createNativeStackNavigator<RootStackParams>();
 
@@ -18,7 +19,9 @@ const AppRoutes = () => {
   const { Navigator, Screen } = Stack;
   const appReducer: any = useSelector<any>((state) => state.appReducer);
 
-  const { isLoggedIn, isLoadingAuthData } = useAuthContext();
+  const { isLoggedIn } = useAuthUser();
+
+  const { isLoadingAuthData } = useAuthContext();
 
   const onLayoutRootView = useCallback(async () => {
     if (!isLoadingAuthData) {
@@ -32,7 +35,12 @@ const AppRoutes = () => {
 
   return (
     <View style={styles.container}>
-      <Navigator screenOptions={{ headerShown: false }}>
+      <Navigator
+        screenOptions={{
+          headerShown: false,
+          contentStyle: { paddingTop: hp(5.5), backgroundColor: "#fff" },
+        }}
+      >
         {isLoggedIn ? (
           <>
             <Screen name="appBottomTab" component={AppBottomTabs} />
@@ -40,8 +48,13 @@ const AppRoutes = () => {
         ) : (
           <>
             {!appReducer.onBoarding && (
-              <Screen name="appOnboarding" component={AppOnboarding} />
+              <Screen
+                name="appOnboarding"
+                component={AppOnboarding}
+                options={{ contentStyle: styles.noPadding }}
+              />
             )}
+
             <Screen name="welcomePage" component={WelcomePage} />
             <Screen name="loginPage" component={Login} />
             <Screen name="signUpPage" component={SignUp} />
@@ -57,6 +70,8 @@ export default AppRoutes;
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    paddingTop: hp(5.5),
+  },
+  noPadding: {
+    paddingTop: 0,
   },
 });

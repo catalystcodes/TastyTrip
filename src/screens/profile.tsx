@@ -10,6 +10,9 @@ import AppButton from "../components/atoms/appButton";
 import { RootStackParams, profilePageTabsParams } from "../utils/type";
 import { useNavigation } from "@react-navigation/native";
 import { useAuthContext } from "../context";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../store/authReducer";
+import { useAuthUser } from "../utils/common.hooks";
 
 interface AppButtonProps {
   backgroundColor: string;
@@ -21,6 +24,9 @@ interface AppButtonProps {
 const Profile = () => {
   const navigation: any = useNavigation();
   const { clearAuthData, userInfo } = useAuthContext();
+  const dispatch = useDispatch();
+
+  const { user } = useAuthUser();
 
   const logoutConfirmationAlert = () => {
     Alert.alert(
@@ -31,7 +37,7 @@ const Profile = () => {
           text: "Cancel",
           style: "destructive",
         },
-        { text: "Logout", onPress: () => clearAuthData() },
+        { text: "Logout", onPress: () => dispatch(logout()) },
       ],
       { cancelable: true }
     );
@@ -54,9 +60,10 @@ const Profile = () => {
             fontSize: 18,
             fontWeight: "700",
             backgroundColor: "red",
+            textTransform: "capitalize",
           }}
         >
-          {userInfo.username}
+          {user?.username}
         </Text>
         <Text style={{ textAlign: "center", marginBottom: hp(3.3) }}>
           +1 11229382748

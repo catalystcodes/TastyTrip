@@ -13,22 +13,36 @@ import GoogleAndFacebookConnect from "../components/molecules/googleAndFacebookC
 import { doLogin } from "../utils/auth.helper";
 import { useAuthContext } from "../context";
 import AuthFooter from "../components/molecules/AuthFooter";
+import { useDispatch } from "react-redux";
+import { login } from "../store/authReducer";
+import { doAPILogin } from "../services";
 
 const Login = ({ navigation }: any) => {
   const [form, setForm] = useState({ username: "", password: "" });
+  const [isLoading, setIsLoading] = useState(false);
   const { setUserInfo } = useAuthContext();
+  const dispatch = useDispatch();
 
   const disableButton =
-    form.username.trim() === "" || form.password.trim() === "";
+    form.username.trim() === "" || form.password.trim() === "" || isLoading;
 
   const handleLogin = async () => {
     if (disableButton) return;
+    setIsLoading(true);
     try {
-      const data = await doLogin(form);
+      // const data = await doLogin(form);
+      const data = await doAPILogin(form);
+      // if (data) {
+      //   setUserInfo(form.username);
+      // }
+      console.log({ data });
       if (data) {
-        setUserInfo(form.username);
+        dispatch(login(data));
       }
-    } catch (error) {}
+    } catch (error) {
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -65,6 +79,7 @@ const Login = ({ navigation }: any) => {
             text="Sign In"
             onPress={handleLogin}
             disabled={disableButton}
+            isLoading={isLoading}
           />
 
           <Text

@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import appReducer from "./appReducer";
+import authReducer from "./authReducer";
 import persistStore from "redux-persist/es/persistStore";
 import {
   FLUSH,
@@ -13,6 +14,7 @@ import {
 export const store = configureStore({
   reducer: {
     appReducer,
+    authReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
