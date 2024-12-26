@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import {
   FlatList,
   Pressable,
@@ -22,11 +22,28 @@ import KeyboardAvoidView from "../components/organisms/keyboardAvoidView";
 import NearByRestaurantsCard from "../components/molecules/nearByRestaurantsCard";
 import { useSelector } from "react-redux";
 import { useAuthContext } from "../context";
+import axios from "axios";
+import { baseUrl } from "../utils/config";
 
 const HomePage = () => {
   const [selectedTab, setSelectedTab] = useState(0);
+  const [recipes, setRecipes] = useState([]);
   const { isLoggedIn, userInfo } = useAuthContext();
 
+  useEffect(() => {
+    const getAllRecipes = async () => {
+      try {
+        const { data } = await axios(`${baseUrl}/recipes`);
+        setRecipes(data.recipes);
+      } catch (error) {
+        console.log({ error });
+      }
+    };
+
+    getAllRecipes();
+  }, []);
+
+  console.log({ recipes });
 
   return (
     <View style={{ flexGrow: 1, backgroundColor: "white" }}>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Alert, Image, Pressable, StyleSheet, Text, View } from "react-native";
 import {
   heightPercentageToDP as hp,
@@ -13,6 +13,8 @@ import { useAuthContext } from "../context";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../store/authReducer";
 import { useAuthUser } from "../utils/common.hooks";
+import axios from "axios";
+import { baseUrl } from "../utils/config";
 
 interface AppButtonProps {
   backgroundColor: string;
@@ -24,9 +26,10 @@ interface AppButtonProps {
 const Profile = () => {
   const navigation: any = useNavigation();
   const { clearAuthData, userInfo } = useAuthContext();
+  const [userProfile, setUserProfile] = useState({});
   const dispatch = useDispatch();
 
-  const { user } = useAuthUser();
+  const { user, token } = useAuthUser();
 
   const logoutConfirmationAlert = () => {
     Alert.alert(
@@ -42,6 +45,25 @@ const Profile = () => {
       { cancelable: true }
     );
   };
+
+  useEffect(() => {
+    const getUserInfo = async () => {
+      try {
+        const { data } = await axios(`${baseUrl}/auth/me`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        console.log({ data });
+
+        setUserProfile(data);
+      } catch (error) {
+        console.log({ error });
+      }
+    };
+
+    getUserInfo();
+  }, []);
 
   const handleSideNav = (path: keyof profilePageTabsParams) => {
     navigation.navigate(path);
