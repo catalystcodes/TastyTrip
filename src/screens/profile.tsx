@@ -15,12 +15,12 @@ interface AppButtonProps {
   backgroundColor: string;
   text: string;
   textColor: string;
-  onPress: () => void; // Ensure this is a function type
+  onPress: () => void;
 }
 
 const Profile = () => {
   const navigation: any = useNavigation();
-  const { userInfo, clearAuthData } = useAuthContext();
+  const { clearAuthData, userInfo } = useAuthContext();
 
   const logoutConfirmationAlert = () => {
     Alert.alert(
@@ -53,9 +53,10 @@ const Profile = () => {
             marginBottom: hp(0.5),
             fontSize: 18,
             fontWeight: "700",
+            backgroundColor: "red",
           }}
         >
-          {userInfo}
+          {userInfo.username}
         </Text>
         <Text style={{ textAlign: "center", marginBottom: hp(3.3) }}>
           +1 11229382748

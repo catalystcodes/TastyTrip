@@ -10,16 +10,23 @@ const AppButton = ({
   onPress,
   backgroundColor = "#D35400",
   textColor = "white",
+  disabled,
 }: {
   text: string;
   onPress?: () => void;
   backgroundColor?: string;
   textColor?: string;
+  disabled?: boolean;
 }) => {
   return (
     <Pressable
-      style={[styles.socialButton, { backgroundColor }]}
+      style={[
+        styles.socialButton,
+        { backgroundColor },
+        disabled && { opacity: 0.5 },
+      ]}
       onPress={onPress}
+      disabled={disabled}
     >
       <Text style={[styles.text, { color: textColor }]}>{text}</Text>
     </Pressable>

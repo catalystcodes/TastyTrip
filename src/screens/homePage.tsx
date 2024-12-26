@@ -20,9 +20,14 @@ import { ScrollView } from "react-native-gesture-handler";
 import FoodMenuCard from "../components/molecules/foodMenu";
 import KeyboardAvoidView from "../components/organisms/keyboardAvoidView";
 import NearByRestaurantsCard from "../components/molecules/nearByRestaurantsCard";
+import { useSelector } from "react-redux";
+import { useAuthContext } from "../context";
 
 const HomePage = () => {
   const [selectedTab, setSelectedTab] = useState(0);
+  const { isLoggedIn, userInfo } = useAuthContext();
+
+
   return (
     <View style={{ flexGrow: 1, backgroundColor: "white" }}>
       <KeyboardAvoidView>
@@ -104,7 +109,7 @@ export default HomePage;
 
 const styles = StyleSheet.create({
   subDivOne: {
-    marginTop: hp(8.8),
+    marginTop: hp(3.34),
     marginHorizontal: wp(7.2),
   },
   searchArea: {

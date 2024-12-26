@@ -23,10 +23,10 @@ const AppInputText = (props: InputTextProps) => {
   const [hidePassword, setHidePassword] = useState(true);
 
   return (
-    <View>
+    <View style={[{ position: "relative", height: hp(5.6) }, otherProps.style]}>
       <TextInput
         {...otherProps}
-        style={[styles.inputStyle, otherProps.style]}
+        style={[styles.inputStyle]}
         secureTextEntry={type === "password" ? hidePassword : secureTextEntry}
       />
       {type === "password" && (
@@ -38,7 +38,6 @@ const AppInputText = (props: InputTextProps) => {
             justifyContent: "center",
             height: "100%",
             zIndex: 10,
-            // backgroundColor: "#fff",
             width: wp(14),
           }}
         >

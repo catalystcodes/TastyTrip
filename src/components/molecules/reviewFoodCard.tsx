@@ -35,7 +35,11 @@ const ReviewFoodCard = ({
   >(null);
   return (
     <View
-      style={{ flexDirection: "row", columnGap: wp(4.8), alignItems: "center" }}
+      style={{
+        flexDirection: "row",
+        columnGap: wp(4.8),
+        alignItems: "center",
+      }}
     >
       <Image source={image} />
       <View style={{ flexGrow: 1 }}>

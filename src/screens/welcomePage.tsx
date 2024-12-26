@@ -8,10 +8,10 @@ import {
 import ConnectWith from "../components/atoms/connectWith";
 import GoogleAndFacebookConnect from "../components/molecules/googleAndFacebookConnect";
 import { useSelector } from "react-redux";
+import AuthFooter from "../components/molecules/AuthFooter";
 
 const WelcomePage = ({ navigation }: any) => {
   const appReducer = useSelector<any>((state) => state.appReducer);
-  console.log({ appReducer });
   return (
     <View style={{ backgroundColor: "#FFFFFF", flexGrow: 1 }}>
       <View style={{ alignItems: "center" }}>
@@ -33,28 +33,8 @@ const WelcomePage = ({ navigation }: any) => {
           />
         </View>
       </View>
-      <View
-        style={{
-          marginTop: hp(17.4),
-          paddingRight: wp(7.2),
-        }}
-      >
-        <ConnectWith />
-
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "space-between",
-          }}
-        >
-          <Image
-            source={require("../assets/PngItem_39514 1.png")}
-            style={styles.foodImage}
-          />
-          <View style={{ marginTop: hp(2.2) }}>
-            <GoogleAndFacebookConnect />
-          </View>
-        </View>
+      <View style={{ marginTop: hp(17.4) }}>
+        <AuthFooter />
       </View>
     </View>
   );
@@ -64,7 +44,7 @@ const styles = StyleSheet.create({
   foodImage: {
     // position: "absolute",
     // top: 70,
-    marginTop: hp(5),
+    // marginTop: hp(5),
   },
 });
 
