@@ -86,6 +86,7 @@ const Profile = () => {
           }}
         >
           {user?.username}
+          {}
         </Text>
         <Text style={{ textAlign: "center", marginBottom: hp(3.3) }}>
           +1 11229382748
