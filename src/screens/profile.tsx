@@ -86,11 +86,12 @@ const Profile = () => {
           }}
         >
           {user?.username}
-          {}
         </Text>
+
         <Text style={{ textAlign: "center", marginBottom: hp(3.3) }}>
           +1 11229382748
         </Text>
+        <Text>{}</Text>
       </View>
       <View style={{ paddingHorizontal: wp(7.2) }}>
         {ProfileDetails.map((item, itemIndex) => (

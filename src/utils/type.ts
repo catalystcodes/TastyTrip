@@ -10,6 +10,7 @@ export type RootStackParams = {
 };
 
 export type OnboardingStackParams = {
+  setOptions(arg0: {}): unknown;
   navigate: any;
 };
 

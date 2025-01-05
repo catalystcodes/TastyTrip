@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import {
   Image,
   ListRenderItemInfo,
@@ -84,10 +84,6 @@ const AppOnboarding = () => {
   const navigation = useNavigation<OnboardingStackParams>();
   const intervalId = useRef<NodeJS.Timeout | null>(null);
   const dispatch = useDispatch();
-
-  useLayoutEffect(() => {
-    navigation.setOptions({});
-  }, []);
 
   return (
     <View style={{ flexGrow: 1, backgroundColor: "#D35400" }}>
