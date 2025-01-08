@@ -68,11 +68,21 @@ const Profile = () => {
   const handleSideNav = (path: keyof profilePageTabsParams) => {
     navigation.navigate(path);
   };
+
   return (
     <View style={{ flexGrow: 1, backgroundColor: "white" }}>
       <View>
-        <View style={{ marginTop: hp(11), margin: "auto" }}>
-          <Image source={require("../assets/profilePics.png")} />
+        <View
+          style={{
+            marginTop: hp(11),
+            margin: "auto",
+          }}
+        >
+          <Image
+            // source={{ uri: userProfile.image }}
+            source={{ uri: userProfile.image }}
+            style={{ width: wp(10), height: wp(10), borderRadius: wp(5) }}
+          />
         </View>
         <Text
           style={{
@@ -81,17 +91,15 @@ const Profile = () => {
             marginBottom: hp(0.5),
             fontSize: 18,
             fontWeight: "700",
-            backgroundColor: "red",
             textTransform: "capitalize",
           }}
         >
-          {user?.username}
+          {userProfile.username}
         </Text>
 
         <Text style={{ textAlign: "center", marginBottom: hp(3.3) }}>
-          +1 11229382748
+          {userProfile.phone}
         </Text>
-        <Text>{}</Text>
       </View>
       <View style={{ paddingHorizontal: wp(7.2) }}>
         {ProfileDetails.map((item, itemIndex) => (
